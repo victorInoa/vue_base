@@ -1,0 +1,23 @@
+src/
+├── api/             # Centralized Axios configurations and base API clients
+├── assets/          # Static files like images, fonts, global CSS/SCSS
+├── components/      # General, reusable UI components (e.g., BaseButton, AppModal)
+├── composables/     # Reusable logic using the Composition API (e.g., useFetch, useForm)
+├── domains/         # OR features/ - Application business logic grouped by domain
+│   ├── UserManagement/
+│   │   ├── api/     # API calls specific to this domain
+│   │   ├── components/ # Components specific to this domain
+│   │   ├── composables/ # Composables specific to this domain
+│   │   ├── models/  # TypeScript interfaces/types for this domain
+│   │   ├── pages/   # Top-level pages/views for this domain (e.g., UsersIndex.vue)
+│   │   └── store/   # Pinia stores specific to this domain
+├── layouts/         # Layout components (e.g., DefaultLayout, AuthLayout)
+├── router/          # Vue Router configuration, potentially split by domain
+├── stores/          # Global Pinia stores (minimal, only app-wide state)
+├── types/           # Global TypeScript interfaces and type definitions
+├── utils/           # Generic, non-Vue specific utility functions (e.g., formatters, validators)
+├── App.vue          # Root component
+└── main.ts          # Application entry point, mounting logic, global registrations
+
+
+https://www.google.com/search?q=vue+3+senior+structure&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIKCAEQABiABBiiBDIHCAIQABjvBTIHCAMQABjvBTIHCAQQABjvBTIHCAUQABjvBdIBCTEyNzIwajBqN6gCALACAA&sourceid=chrome&ie=UTF-8&udm=50&fbs=AIIjpHx4nJjfGojPVHhEACUHPiMQht6_BFq6vBIoFFRK7qchKBv8IM7dq8CEqHDU3BN7lblAhsJT8_A_Kaclg0ioopJQE57ZvFQVMHSTJKIqr7PDTQ3jJVaEeJYbOVx3eSZsv7lkemrY888kmL93XoKrSbNV3J2EUpyEsAPSc_35bwYHryaqFFXi9gadzRrpl72tIzVJPRkRDzWysQ68-smZRHXfgFb_9A&ved=2ahUKEwjz0tTGyfWQAxVJQjABHZXRAcgQ0NsOegQIWxAA&aep=10&ntc=1&mstk=AUtExfAPnuKuV_9RlURcqhoUqFx13v4ngyxcii9-9730WliSmJVqWMrRp0_gZdUXx31N2osXvEd0D5kXZZG6aObc2GeOXZqJKP25M0jCLDOpolv8iXiYUSxCU7fTdaFERTk4LC8NuN7gxCA5Z479tH96p9CWGqUIGWGzEu-zpPLUKbXPUaQvNkYZEtoXfBDXCAsn7Au4gLaWySF0faYKsAQsDMBqq3McYkdQ_ghadfQFfipu8h04KwVhAXKB4T_BeQ8gygrY25Ucur4w62gyseIHbsMs_BTZHGcvnOjFTfL_c9Y-hkI2kg0gaYurnOhohSemGprJxIjKAIzp0Q&csuir=1&mtid=ZjAZaZGLGoCqwbkP0M_noQs

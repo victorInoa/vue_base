@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  --font-cave: 'Caveat Variable', cursive;
+  --font-osw: 'Oswald Variable', sans-serif;
+}
+/*customs classes*/
+h1 {
+  /*@apply font-cave*/
+  /*@apply font-[300] font-[var(--font-osw)]*/
+}

@@ -1,0 +1,41 @@
+{
+  "name": "victor-inoa/vue-base",
+  "version": "0.0.0-dev",
+  "description": "Base project for vue and PHP projects",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "VictorInoa\\Server\\": "server/src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Victor Inoa",
+      "email": "victorinoa16@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^8.4",
+    "vlucas/phpdotenv": "^5.6"
+  },
+  "scripts": {
+    "serve": "php -S localhost:8000 -t server",
+    "pest": "./vendor/bin/pest --colors=always",
+    "phpstan": "./vendor/bin/phpstan analyse server -l max"
+  },
+  "config": {
+    "process-timeout": 3600,
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  },
+  "require-dev": {
+    "pestphp/pest": "^4.1",
+    "phpstan/phpstan": "^2.1"
+  }
+}
