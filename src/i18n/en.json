@@ -1,0 +1,13 @@
+{
+  "home": {
+	"title": "Welcome",
+	"description": "Starter kit demo (English)"
+  },
+  "auth": {
+	"login": "Login",
+	"noAccount": "Don't have an account?"
+  },
+  "dashboard": {
+	"welcome": "Welcome to your dashboard"
+  }
+}

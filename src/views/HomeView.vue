@@ -1,5 +1,9 @@
 <script setup>
 import SectionTitle from '@/components/SectionTitle.vue'
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
+
+const i18nVar = t('home.title')
 </script>
 
 <template>
@@ -14,4 +18,11 @@ import SectionTitle from '@/components/SectionTitle.vue'
       >https://fontsource.org/</a
     >
   </h2>
+  <div class="mt-5 p-5 border border-gray-500 rounded-lg">
+    <p><strong>Uso de i18n llamando desde &lt;theme&gt;:</strong></p>
+    <p class="mb-5">{{ $t('home.description') }}</p>
+
+    <p><strong>Uso de i18n llamando desde &lt;script setup&gt;:</strong></p>
+    <p>{{ i18nVar }}</p>
+  </div>
 </template>
