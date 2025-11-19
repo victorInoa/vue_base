@@ -13,6 +13,7 @@ _**Este es una base para arrancar cualquier tipo de proyecto, contiene explicaci
 **_En Package.Json_**
 
 - [Axios](https://axios-http.com/)
+- [Iconify](https://iconify.design/docs/icon-components/vue/)
 - [Chart.js](https://www.chartjs.org/)
 - [Pinia](https://pinia.vuejs.org/)
 - [Vue 3](https://vuejs.org/)
@@ -100,6 +101,17 @@ if ($_ENV['DEBUG_MODE'] === 'true') {
 }
 ```
 
+Dentro de vue puede acceder a las
+
+```js
+<scrip setup>
+    const apiUrl = import.meta.env.VITE_SERVER_ROOT_URL
+</scrip>
+<template>
+    <p>{{apiUrl}}</p>
+</template>
+```
+
 ---
 
 ### Package.json
@@ -153,12 +165,39 @@ const loadUser = async() => {
 
 ---
 
+**Iconify**
+
+Biblioteca de iconos con una gran cantidad y variedad de estilos, muy fácil de implementar...
+
+**Cómo configurarlo**
+
+No tiene configuracion adicional
+
+**Ejemplo de uso**
+
+Solo se debe importar en el componente o la vista que se usará
+
+```js
+import {Icon} from "@iconify/vue";
+```
+
+Dentro de las etiquetas `<theme></theme>` usarlo
+
+```html
+
+<theme>
+  <Icon icon="mdi:home" style="color: red"/>
+</theme>
+```
+
+---
+
 **2. Chart.js**
 
 Chart.js es una librería poderosa para generar gráficas interactivas en HTML5. Permite crear gráficos de barras, líneas, pastel, radar, burbujas y más. Es ideal para paneles administrativos, dashboards o visualización de datos. Funciona
 directamente con `<canvas>` y es completamente personalizable.
 
-**Cómo configurarlo
+**Cómo configurarlo**
 
 No requiere configuración global, pero puedes crear un helper en `src/utils/chart.js`:
 
@@ -178,9 +217,6 @@ export function renderChart(canvas, type, data, options = {}){
 
 ```vue
 
-<template>
-  <canvas ref="chart"></canvas>
-</template>
 <script setup>
   import {ref, onMounted} from 'vue'
   import {renderChart} from '@/utils/chart'
@@ -194,6 +230,10 @@ export function renderChart(canvas, type, data, options = {}){
     })
   })
 </script>
+<template>
+  <canvas ref="chart"></canvas>
+</template>
+
 ```
 
 ---

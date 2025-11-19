@@ -4,6 +4,7 @@ import { onMounted, ref } from 'vue'
 import LoadingBar from '@/components/LoadingBar.vue'
 import ReportListItem from '@/components/ReportListItem.vue'
 import SectionTitle from '@/components/SectionTitle.vue'
+import ButtonBase from '@/components/forms/ButtonBase.vue'
 
 const reports = ref(null)
 const loading = ref(true)
@@ -37,18 +38,11 @@ onMounted(getReports)
   <SectionTitle>Reportes</SectionTitle>
 
   <div>
-    <div v-if="loading && reports === null">
-      <LoadingBar />
-    </div>
+    <div v-if="loading && reports === null"><LoadingBar /> Cargando reportes...</div>
     <template v-else>
       <div v-if="typeof reports === 'string'">
         {{ reports }}
-        <button
-          class="hover:cursor-pointer text-blue-500 hover:text-blue-600 border-2 border-b-blue-500 px-2 py-1 rounded-lg transition duration-250 ease-in-out"
-          @click="tryAgain"
-        >
-          Try again
-        </button>
+        <buttonBase @click="tryAgain"> Try again </buttonBase>
       </div>
       <ReportListItem v-for="report in reports" v-else v-bind:key="report.id" :report="report" />
     </template>

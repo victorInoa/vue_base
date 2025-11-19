@@ -6,7 +6,7 @@ import Main from '@/components/interfase/Main.vue'
 import Footer from '@/components/interfase/Footer.vue'
 </script>
 
-<template>
+<template class="bg-red-300 h-screen">
   <HeaderMenu />
   <Main>
     <RouterView />

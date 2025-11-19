@@ -36,6 +36,7 @@
   },
   "require-dev": {
     "pestphp/pest": "^4.1",
-    "phpstan/phpstan": "^2.1"
+    "phpstan/phpstan": "^2.1",
+    "roave/security-advisories": "dev-latest"
   }
 }

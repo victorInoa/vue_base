@@ -92,7 +92,6 @@
       </circle>
     </svg>
   </div>
-  Cargando reportes...
 </template>
 
 <style scoped></style>

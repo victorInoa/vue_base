@@ -1,5 +1,6 @@
 <script setup>
 import SectionTitle from '@/components/SectionTitle.vue'
+let apiUrl = import.meta.env.VITE_SERVER_ROOT_URL
 </script>
 
 <template>
@@ -14,4 +15,6 @@ import SectionTitle from '@/components/SectionTitle.vue'
       >https://fontsource.org/</a
     >
   </h2>
+
+  <p>{{ apiUrl }}</p>
 </template>

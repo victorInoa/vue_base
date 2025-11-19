@@ -11,6 +11,7 @@ import DarkModeToggle from '@/components/DarkModeToggle.vue'
         <RouterLink class="hover:text-cyan-300" to="/evidences">Evidencias</RouterLink>
         <RouterLink class="hover:text-cyan-300" to="/reports">Reports</RouterLink>
         <RouterLink class="hover:text-cyan-300" to="/profile">Mi perfil</RouterLink>
+        <RouterLink class="hover:text-cyan-300" to="/examples/form">Ejemplo de uso</RouterLink>
       </nav>
       <div class="flex items-center">
         <DarkModeToggle />
