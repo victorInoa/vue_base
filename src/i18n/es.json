@@ -1,0 +1,13 @@
+{
+  "home": {
+	"title": "Bienvenido",
+	"description": "Demo del starter kit (Espa\u00f1ol)"
+  },
+  "auth": {
+	"login": "Iniciar sesi\u00f3n",
+	"noAccount": "\u00bfNo tienes cuenta?"
+  },
+  "dashboard": {
+	"welcome": "Bienvenido a tu panel"
+  }
+}

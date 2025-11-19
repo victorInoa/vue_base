@@ -32,8 +32,12 @@
     "process-timeout": 3600,
     "allow-plugins": {
       "pestphp/pest-plugin": true
-    }
+    },
+	"platform": {
+	  "php": "8.4"
+	}
   },
+
   "require-dev": {
     "pestphp/pest": "^4.1",
     "phpstan/phpstan": "^2.1",

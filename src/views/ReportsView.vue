@@ -16,7 +16,8 @@ async function getReports() {
     if (response.statusText !== 'OK') {
       throw new Error('Error al cargar reportes')
     }
-    reports.value = response.data.data
+
+    reports.value = response.data.data.reports
     loading.value = false
   } catch (error) {
     console.error('Error al cargar reportes: ' + error.message)
