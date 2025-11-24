@@ -4,7 +4,7 @@ import InputTextBase from '@/components/forms/InputTextBase.vue'
 import InputPasswordBase from '@/components/forms/InputPasswordBase.vue'
 import ButtonBase from '@/components/forms/ButtonBase.vue'
 import { Icon } from '@iconify/vue'
-import CardBase from '@/components/cards/CardBase.vue'
+import CardBase from '@/components/base/CardBase.vue'
 </script>
 
 <template>

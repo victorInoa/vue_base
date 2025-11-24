@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import Form from '../views/examples/Form.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -16,7 +15,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/ReportsView.vue'),
+      component: () => import('@/views/ReportsView.vue'),
     },
     {
       path: '/evidences',
@@ -24,7 +23,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/EvidencesView.vue'),
+      component: () => import('@/views/EvidencesView.vue'),
     },
     {
       path: '/profile',
@@ -32,15 +31,25 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/ProfileView.vue'),
+      component: () => import('@/views/ProfileView.vue'),
     },
     {
-      path: '/examples/form',
-      name: 'form',
+      path: '/examples',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/examples/Form.vue'),
+
+      children: [
+        { path: '', component: () => import('@/views/examples/Form.vue') },
+        {
+          path: 'forms',
+          component: () => import('@/views/examples/Form.vue'),
+        },
+        {
+          path: 'emiter',
+          component: () => import('@/views/examples/Emiter.vue'),
+        },
+      ],
     },
   ],
 })
