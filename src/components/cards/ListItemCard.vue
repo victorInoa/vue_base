@@ -1,6 +1,6 @@
 <script setup>
 import CardBase from '@/components/base/CardBase.vue'
-import ButtonBase from '@/components/forms/ButtonBase.vue'
+import ButtonBase from '@/components/base/forms/ButtonBase.vue'
 
 defineProps({
   item: {

@@ -1,8 +1,8 @@
 <script setup>
 import SectionTitle from '@/components/SectionTitle.vue'
-import InputTextBase from '@/components/forms/InputTextBase.vue'
-import InputPasswordBase from '@/components/forms/InputPasswordBase.vue'
-import ButtonBase from '@/components/forms/ButtonBase.vue'
+import InputTextBase from '@/components/base/forms/InputTextBase.vue'
+import InputPasswordBase from '@/components/base/forms/InputPasswordBase.vue'
+import ButtonBase from '@/components/base/forms/ButtonBase.vue'
 import { Icon } from '@iconify/vue'
 import CardBase from '@/components/base/CardBase.vue'
 </script>
@@ -32,8 +32,8 @@ import CardBase from '@/components/base/CardBase.vue'
         placeholder="Escribe tu contraseña"
       />
       <template #footer>
-        <ButtonBase size="xlarge">
-          <Icon class="mr-2 size-10 inline" icon="fluent-color:send-clock-20" />
+        <ButtonBase variant="gradient">
+          <Icon class="mr-2 inline" icon="fluent-color:send-clock-20" />
           Enviar
         </ButtonBase>
       </template>

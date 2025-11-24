@@ -3,9 +3,22 @@
 @theme {
   --font-cave: 'Caveat Variable', cursive;
   --font-osw: 'Oswald Variable', sans-serif;
+  /*--primary-color: #264093;*/
+  /*--secondary-color: green;*/
+  /*--outline-color: red;*/
+  /*--text-color: #264093;*/
 }
 /*customs classes*/
 h1 {
   /*@apply font-cave*/
   /*@apply font-[300] font-[var(--font-osw)]*/
 }
+/*
+.bg-primary {
+  @apply text-white hover:text-red-100;
+  background-color: var(--primary-color);
+}
+.dark .bg-primary {
+  background-color: red;
+}
+*/

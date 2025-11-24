@@ -1,6 +1,6 @@
 <script setup>
-import ListItemCard from '@/components/cards/ListItemCard.vue'
 import { ref } from 'vue'
+import ListItemCard from '@/components/cards/ListItemCard.vue'
 import SectionTitle from '@/components/SectionTitle.vue'
 
 const ListItems = ref([

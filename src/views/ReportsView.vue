@@ -4,7 +4,7 @@ import { onMounted, ref } from 'vue'
 import LoadingBar from '@/components/LoadingBar.vue'
 import ReportListItem from '@/components/ReportListItem.vue'
 import SectionTitle from '@/components/SectionTitle.vue'
-import ButtonBase from '@/components/forms/ButtonBase.vue'
+import ButtonBase from '@/components/base/forms/ButtonBase.vue'
 
 const reports = ref(null)
 const loading = ref(true)

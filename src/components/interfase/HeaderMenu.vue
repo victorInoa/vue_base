@@ -4,29 +4,31 @@ import DarkModeToggle from '@/components/DarkModeToggle.vue'
 </script>
 
 <template>
-  <header class="p-4 flex justify-between border-b-2 border-slate-400">
+  <header class="p-4 flex justify-between border-b-2 border-slate-400 w-full">
     <div class="max-w-7xl mx-auto w-full flex justify-between font-bold">
       <nav class="flex space-x-4 text-black dark:text-slate-200 align-center justify-center">
         <RouterLink class="hover:text-cyan-300" to="/">Home</RouterLink>
         <RouterLink class="hover:text-cyan-300" to="/evidences">Evidencias</RouterLink>
         <RouterLink class="hover:text-cyan-300" to="/reports">Reports</RouterLink>
         <RouterLink class="hover:text-cyan-300" to="/profile">Mi perfil</RouterLink>
-        <RouterLink class="hover:text-cyan-300 relative group/menu" to="/examples/">
+        <RouterLink class="hover:text-cyan-300 relative group/menu" to="/examples">
           Examples
           <ul
-            class="group-hover/menu:block absolute top-6 left-0 hidden border border-slate-400 bg-amber-50 p-3"
+            class="group-hover/menu:block absolute top-6 left-0 hidden border border-slate-400 bg-white p-3 shadow-2xl"
           >
             <li>
               <routerLink class="hover:text-red-500" to="/examples/forms">Forms</routerLink>
             </li>
-            <li><routerLink class="hover:text-red-500" to="/examples/emiter">Emiter</routerLink></li>
+            <li>
+              <routerLink class="hover:text-red-500" to="/examples/emiter">Emiter</routerLink>
+            </li>
           </ul>
         </RouterLink>
       </nav>
       <div class="flex items-center">
         <DarkModeToggle />
       </div>
-      <div class="flex items-center space-x-4">
+      <div class="items-center space-x-4 hidden sm:flex">
         <div class="flex flex-col space-y-1">
           <a
             class="font-semibold text-gray-800 transition-colors duration-300 dark:text-gray-200 sm:text-lg dark:hover:text-primary hover:text-primary hover:underline"
@@ -40,7 +42,7 @@ import DarkModeToggle from '@/components/DarkModeToggle.vue'
           ><img
             alt="RagAndRoll"
             class="object-cover w-full h-full"
-            src="https://avatars.githubusercontent.com/u/79159146?v=4"
+            src="/assets/profiles/vinoa.jpg"
         /></a>
       </div>
     </div>

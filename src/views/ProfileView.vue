@@ -2,10 +2,12 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import Chart from 'chart.js/auto'
 import SectionTitle from '@/components/SectionTitle.vue'
+import ButtonBase from '@/components/base/forms/ButtonBase.vue'
 
 const DATA_SET_VERTICAL_BAR_CHART_1 = [
   68.106, 26.762, 94.255, 72.021, 74.082, 64.923, 85.565, 32.432, 54.664, 87.654, 43.013, 91.443,
 ]
+const openSettings = ref(false)
 
 const labels_vertical_bar_chart = [
   'January',
@@ -52,7 +54,6 @@ const configVerticalBarChart = {
 }
 
 const chart = ref(null)
-const openSettings = ref(false)
 
 onMounted(() => {
   const ctx = document.getElementById('verticalBarChart')
@@ -76,14 +77,10 @@ onBeforeUnmount(() => {
 <template>
   <sectionTitle>Mi perfil</sectionTitle>
 
-  <div class="h-full p-8 text-slate-300">
-    <div class="rounded-lg shadow-xl pb-8">
+  <div class="h-full text-slate-300">
+    <div class="rounded-lg shadow-xl pb-8 mt-10">
       <div class="absolute right-12 mt-4 rounded" x-data="{ openSettings: false }">
-        <button
-          class="border border-slate-400 p-2 rounded text-slate-300 hover:text-slate-300 bg-slate-100 bg-opacity-10 hover:bg-opacity-20"
-          title="Settings"
-          @click="openSettings = !openSettings"
-        >
+        <buttonBase @click="openSettings = !openSettings">
           <svg
             class="h-4 w-4"
             fill="currentColor"
@@ -98,16 +95,15 @@ onBeforeUnmount(() => {
               stroke-width="3"
             ></path>
           </svg>
-        </button>
+        </buttonBase>
         <div
+          v-show="openSettings"
           class="bg-white absolute right-0 w-40 py-2 mt-1 border border-slate-200 shadow-2xl"
-          style="display: none"
-          x-show="openSettings"
           @click.self="openSettings = false"
         >
           <div class="py-2 border-b">
-            <p class="text-slate-400 text-xs px-6 uppercase mb-1">Settings</p>
-            <button class="w-full flex items-center px-6 py-1.5 space-x-2 hover:bg-slate-200">
+            <p class="text-slate-400 text-xs px-3 uppercase mb-3 font-bold">Settings</p>
+            <a class="flex items-center space-x-2 mb-3 px-3" href="#">
               <svg
                 class="h-4 w-4 text-slate-400"
                 fill="none"
@@ -123,8 +119,8 @@ onBeforeUnmount(() => {
                 ></path>
               </svg>
               <span class="text-sm text-slate-700">Share Profile</span>
-            </button>
-            <button class="w-full flex items-center py-1.5 px-6 space-x-2 hover:bg-slate-200">
+            </a>
+            <a class="flex items-center space-x-2 mb-3 px-3" href="#">
               <svg
                 class="h-4 w-4 text-slate-400"
                 fill="none"
@@ -140,8 +136,8 @@ onBeforeUnmount(() => {
                 ></path>
               </svg>
               <span class="text-sm text-slate-700">Block User</span>
-            </button>
-            <button class="w-full flex items-center py-1.5 px-6 space-x-2 hover:bg-slate-200">
+            </a>
+            <a class="flex items-center space-x-2 mb-3 px-3" href="#">
               <svg
                 class="h-4 w-4 text-slate-400"
                 fill="none"
@@ -157,11 +153,11 @@ onBeforeUnmount(() => {
                 ></path>
               </svg>
               <span class="text-sm text-slate-700">More Info</span>
-            </button>
+            </a>
           </div>
           <div class="py-2">
-            <p class="text-slate-400 text-xs px-6 uppercase mb-1">Feedback</p>
-            <button class="w-full flex items-center py-1.5 px-6 space-x-2 hover:bg-slate-200">
+            <p class="text-slate-400 text-xs px-3 uppercase mb-3 font-bold">Feedback</p>
+            <a class="flex items-center space-x-2 mb-3 px-3" href="#">
               <svg
                 class="h-4 w-4 text-slate-400"
                 fill="none"
@@ -177,18 +173,15 @@ onBeforeUnmount(() => {
                 ></path>
               </svg>
               <span class="text-sm text-slate-700">Report</span>
-            </button>
+            </a>
           </div>
         </div>
       </div>
 
       <div class="flex flex-col items-center -mt-20">
-        <img
-          class="w-40 border-4 border-white rounded-full"
-          src="https://vojislavd.com/ta-template-demo/assets/img/profile.jpg"
-        />
+        <img class="w-40 border-4 border-white rounded-full" src="/assets/profiles/vinoa.jpg" />
         <div class="flex items-center space-x-2 mt-2">
-          <p class="text-2xl">Amanda Ross</p>
+          <p class="text-2xl">Víctor Inoa</p>
           <span class="bg-blue-500 rounded-full p-1" title="Verified">
             <svg
               class="text-slate-100 h-2.5 w-2.5"
@@ -211,9 +204,7 @@ onBeforeUnmount(() => {
       </div>
       <div class="flex-1 flex flex-col items-center lg:items-end justify-end px-8 mt-2">
         <div class="flex items-center space-x-4 mt-2">
-          <button
-            class="flex items-center bg-blue-600 hover:bg-blue-700 text-slate-100 px-4 py-2 rounded text-sm space-x-2 transition duration-100"
-          >
+          <buttonBase>
             <svg
               class="h-4 w-4"
               fill="currentColor"
@@ -224,11 +215,9 @@ onBeforeUnmount(() => {
                 d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"
               ></path>
             </svg>
-            <span>Connect</span>
-          </button>
-          <button
-            class="flex items-center bg-blue-600 hover:bg-blue-700 text-slate-100 px-4 py-2 rounded text-sm space-x-2 transition duration-100"
-          >
+            <span>Connect with me</span>
+          </buttonBase>
+          <buttonBase>
             <svg
               class="h-4 w-4"
               fill="currentColor"
@@ -241,8 +230,8 @@ onBeforeUnmount(() => {
                 fill-rule="evenodd"
               ></path>
             </svg>
-            <span>Message</span>
-          </button>
+            <span>Message me</span>
+          </buttonBase>
         </div>
       </div>
     </div>
