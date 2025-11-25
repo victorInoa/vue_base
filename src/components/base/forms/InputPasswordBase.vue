@@ -28,6 +28,7 @@ defineProps({
       :name="name"
       :placeholder="placeholder"
       :value="value"
+      autocomplete="current-password"
       class="border-slate-400 border-2 rounded-xl px-4 py-2"
       type="password"
     />

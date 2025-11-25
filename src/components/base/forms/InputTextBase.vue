@@ -25,6 +25,7 @@ defineProps({
     <label v-if="label" :for="id" class="block font-semibold">{{ label }}</label>
     <input
       :id="id"
+      :autocomplete="`current-${name}`"
       :name="name"
       :placeholder="placeholder"
       :value="value"

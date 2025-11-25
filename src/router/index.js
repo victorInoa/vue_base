@@ -31,10 +31,12 @@ const router = createRouter({
         { path: '', component: () => import('@/views/examples/Form.vue') },
         {
           path: 'forms',
+          name: 'exampleForms',
           component: () => import('@/views/examples/Form.vue'),
         },
         {
           path: 'emiter',
+          name: 'exampleEmiter',
           component: () => import('@/views/examples/Emiter.vue'),
         },
       ],

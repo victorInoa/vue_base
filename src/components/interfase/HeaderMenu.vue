@@ -7,20 +7,24 @@ import DarkModeToggle from '@/components/DarkModeToggle.vue'
   <header class="p-4 flex justify-between border-b-2 border-slate-400 w-full">
     <div class="max-w-7xl mx-auto w-full flex justify-between font-bold">
       <nav class="flex space-x-4 text-black dark:text-slate-200 align-center justify-center">
-        <RouterLink class="hover:text-cyan-300" to="/">Home</RouterLink>
-        <RouterLink class="hover:text-cyan-300" to="/evidences">Evidencias</RouterLink>
-        <RouterLink class="hover:text-cyan-300" to="/reports">Reports</RouterLink>
-        <RouterLink class="hover:text-cyan-300" to="/profile">Mi perfil</RouterLink>
-        <RouterLink class="hover:text-cyan-300 relative group/menu" to="/examples">
+        <RouterLink :to="{ name: 'home' }" class="hover:text-cyan-300">Home</RouterLink>
+        <RouterLink :to="{ name: 'evidences' }" class="hover:text-cyan-300">Evidencias</RouterLink>
+        <RouterLink :to="{ name: 'reports' }" class="hover:text-cyan-300">Reports</RouterLink>
+        <RouterLink :to="{ name: 'profile' }" class="hover:text-cyan-300" name="profile"
+          >Mi perfil</RouterLink
+        >
+        <RouterLink :to="{ name: 'exampleForms' }" class="hover:text-cyan-300 relative group/menu">
           Examples
           <ul
             class="group-hover/menu:block absolute top-6 left-0 hidden border border-slate-400 bg-white p-3 shadow-2xl"
           >
             <li>
-              <routerLink class="hover:text-red-500" to="/examples/forms">Forms</routerLink>
+              <routerLink :to="{ name: 'exampleForms' }" class="hover:text-red-500"
+                >Forms</routerLink
+              >
             </li>
             <li>
-              <routerLink class="hover:text-red-500" to="/examples/emiter">Emiter</routerLink>
+              <routerLink :to="{name: 'exampleEmiter'}" class="hover:text-red-500">Emiter</routerLink>
             </li>
           </ul>
         </RouterLink>
