@@ -1,6 +1,15 @@
 <?php
+// Set CORS headers
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type, Authorization');
 header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: *'); //todo delete this on production
+
+// Handle preflight request
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit();
+}
 require_once __DIR__ . '/../vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
@@ -32,6 +41,28 @@ try {
     'Verifica que tengas definidas las siguientes variables de entorno:' . print_r($requiredEnvVariables, true)
   );
   die();
+}
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Get JSON input for POST requests
+    $input = json_decode(file_get_contents('php://input'), true);
+    if (json_last_error() === JSON_ERROR_NONE) {
+        $_POST = array_merge($_POST, $input);
+    }
+  if ($_POST["action"] === 'login') {
+    $user_name = $_POST["user_name"];
+    $password  = $_POST["password"];
+    echo json_encode(
+      [
+        'status' => 'ok',
+        'data'   => [
+          'user_name' => $user_name . '__pasador_por_el_post',
+          'password'  => $password . '__pasador_por_el_post',
+        ],
+        'env'    => $_ENV['VITE_SERVER_ROOT_URL'],
+      ],
+    );
+    die();
+  }
 }
 echo json_encode(
   [

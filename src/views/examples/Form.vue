@@ -6,6 +6,10 @@ import ButtonBase from '@/components/base/forms/ButtonBase.vue'
 import { Icon } from '@iconify/vue'
 import CardBase from '@/components/base/CardBase.vue'
 import axios from 'axios'
+import Swal from 'sweetalert2'
+import { alertBase } from '@/composables/SweetAlerts'
+import { onMounted } from 'vue'
+
 const handleSubmit = () => {
   console.log('----submitting')
   const formData = new FormData(event.target)
@@ -26,10 +30,20 @@ async function login(formData) {
     if (response.statusText !== 'OK') {
       throw new Error('Error al hacer login')
     }
+    await Swal.fire({
+      icon: 'success',
+      title: 'Success...',
+      text: 'Login successful!',
+    })
+    console.log(response)
   } catch (error) {
     console.error('Error al hacerlo: ' + error.message)
   }
 }
+
+onMounted(() => {
+  alertBase('Nitido desde el composable', 'success', 'Titulo', 'Footer')
+})
 </script>
 
 <template>
