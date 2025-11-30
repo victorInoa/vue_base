@@ -13,7 +13,7 @@ import { onMounted } from 'vue'
 const handleSubmit = () => {
   console.log('----submitting')
   const formData = new FormData(event.target)
-  console.log(formData)
+  //console.log(formData)
   console.log(formData.get('user_name'))
   console.log(formData.get('password'))
   login(formData)
@@ -21,7 +21,7 @@ const handleSubmit = () => {
 
 async function login(formData) {
   try {
-    const response = await axios.post('http://localhost:8000', {
+    const response = await axios.post('', {
       user_name: formData.get('user_name'),
       password: formData.get('password'),
       action: 'login',
@@ -30,24 +30,37 @@ async function login(formData) {
     if (response.statusText !== 'OK') {
       throw new Error('Error al hacer login')
     }
-    await Swal.fire({
-      icon: 'success',
-      title: 'Success...',
-      text: 'Login successful!',
-    })
-    console.log(response)
+
+    if (response.data.status === 'error') {
+      await alertBase(response.data.message, 'error', 'Error', 'Footer')
+    }
+    if (response.data.status === 'warning') {
+      await alertBase(
+        response.data.message +
+          '\n Datos pasados: <strong>Nombre:</strong> ' +
+          response.data.data.user_name +
+          ' <strong>Password:</strong> ' +
+          response.data.data.password,
+        'warning',
+        'Advertencia',
+        'Footer',
+      )
+    }
+    if (response.data.status === 'ok') {
+      await alertBase(response.data.message, 'success', 'Exito', 'Footer')
+    }
   } catch (error) {
     console.error('Error al hacerlo: ' + error.message)
   }
 }
 
 onMounted(() => {
-  alertBase('Nitido desde el composable', 'success', 'Titulo', 'Footer')
+  //alertBase('Nitido desde el composable', 'success', 'Titulo', 'Footer')
 })
 </script>
 
 <template>
-  <section-title>Como usar un formulario</section-title>
+  <div class="text-center"><section-title>Como usar un formulario</section-title></div>
 
   <form action="" @submit.prevent="handleSubmit">
     <CardBase>

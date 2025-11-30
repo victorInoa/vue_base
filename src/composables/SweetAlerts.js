@@ -3,7 +3,7 @@ export function alertBase($text, $icon = 'info', $title = '', $footer = '') {
   return Swal.fire({
     icon: $icon,
     title: $title,
-    text: $text,
+    html: $text,
     footer: $footer,
   })
 }

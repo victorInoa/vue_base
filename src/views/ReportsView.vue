@@ -11,7 +11,7 @@ const loading = ref(true)
 
 async function getReports() {
   try {
-    const response = await axios.get('http://localhost:8000')
+    const response = await axios.get('?action=reports')
 
     if (response.statusText !== 'OK') {
       throw new Error('Error al cargar reportes')

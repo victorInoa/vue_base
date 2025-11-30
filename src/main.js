@@ -5,6 +5,8 @@ import { createPinia } from 'pinia'
 
 import i18n from './i18n'
 
+import axios from 'axios'
+
 //*************************************/
 //*Fonts from https://fontsource.org***/
 //*************************************/
@@ -17,6 +19,10 @@ import App from './App.vue'
 import router from './router'
 
 const app = createApp(App)
+
+axios.defaults.baseURL = import.meta.env.VITE_SERVER_ROOT_URL
+//ready for use tokens
+//axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`
 
 //uses here
 app.use(createPinia())

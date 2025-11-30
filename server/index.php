@@ -4,11 +4,10 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization');
 header('Content-Type: application/json');
-
 // Handle preflight request
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    http_response_code(200);
-    exit();
+  http_response_code(200);
+  exit();
 }
 require_once __DIR__ . '/../vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
@@ -18,6 +17,7 @@ try {
     [
       'PLATFORM_VERSION',
       'PLATFORM_ENVIRONMENT',
+      'PLATFORM_DEPLOY_ROOT',
       'PLATFORM_DIR_INTERNAL_ERRORS_LOGS',
       'PLATFORM_DIR_TEMP_SESSIONS',
       'PLATFORM_SESSION_DURATION',
@@ -43,24 +43,48 @@ try {
   die();
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Get JSON input for POST requests
-    $input = json_decode(file_get_contents('php://input'), true);
-    if (json_last_error() === JSON_ERROR_NONE) {
-        $_POST = array_merge($_POST, $input);
-    }
+  $input = json_decode(file_get_contents('php://input'), true);
+  if (json_last_error() === JSON_ERROR_NONE) {
+    $_POST = array_merge($_POST, $input);
+  }
   if ($_POST["action"] === 'login') {
     $user_name = $_POST["user_name"];
     $password  = $_POST["password"];
-    echo json_encode(
-      [
-        'status' => 'ok',
-        'data'   => [
-          'user_name' => $user_name . '__pasador_por_el_post',
-          'password'  => $password . '__pasador_por_el_post',
+    if ($user_name === '' || $password === '') {
+      echo json_encode(
+        [
+          'status'  => 'error',
+          'message' => 'No puede haber campos vacios',
+          'data'    => [
+            'user_name' => $user_name,
+            'password'  => $password,
+          ],
         ],
-        'env'    => $_ENV['VITE_SERVER_ROOT_URL'],
-      ],
-    );
+        JSON_THROW_ON_ERROR
+      );
+    } else {
+      if ($user_name === 'rustty' && $password === 'password') {
+        echo json_encode(
+          [
+            'status'  => 'ok',
+            'message' => 'Tienes todo el acceso :D',
+          ],
+          JSON_THROW_ON_ERROR
+        );
+      } else {
+        echo json_encode(
+          [
+            'status'  => 'warning',
+            'message' => 'Debes pasar las credenciales correctas',
+            'data'    => [
+              'user_name' => $user_name,
+              'password'  => $password,
+            ],
+          ],
+          JSON_THROW_ON_ERROR
+        );
+      }
+    }
     die();
   }
 }
