@@ -9,6 +9,11 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 import { alertBase } from '@/composables/SweetAlerts'
 import { onMounted } from 'vue'
+import LabelBase from '@/components/base/forms/LabelBase.vue'
+import TextAreaBase from '@/components/base/forms/TextAreaBase.vue'
+import RadioBase from '@/components/base/forms/RadioBase.vue'
+import CheckboxBase from '@/components/base/forms/CheckboxBase.vue'
+import FileBase from '@/components/base/forms/FileBase.vue'
 
 const handleSubmit = () => {
   console.log('----submitting')
@@ -58,26 +63,22 @@ onMounted(() => {
   //alertBase('Nitido desde el composable', 'success', 'Titulo', 'Footer')
 })
 </script>
-
 <template>
-  <div class="text-center"><section-title>Como usar un formulario</section-title></div>
-
+  <div class="text-center">
+    <section-title>Como usar un formulario</section-title>
+  </div>
   <form action="" @submit.prevent="handleSubmit">
     <CardBase>
       <template #header>
         <h2>Formulario de registro</h2>
       </template>
-
       <InputTextBase
-        id="input_name"
         class="mb-3"
         label="Usuario"
         name="user_name"
         placeholder="Escribe tu nombre de usuario"
       />
-
       <InputPasswordBase
-        id="input_password"
         class="mb-3"
         label="Contraseña"
         name="password"
@@ -91,6 +92,43 @@ onMounted(() => {
       </template>
     </CardBase>
   </form>
+  <form class="mt-5">
+    <CardBase>
+      <template #header>
+        <h2>Formulario de registro</h2>
+      </template>
+      <template #footer>
+        <div class="mt-5">
+          <ButtonBase type="submit" variant="primary">
+            <Icon class="mr-2 inline" icon="mdi:users-add" />
+            Realizar registro
+          </ButtonBase>
+        </div>
+      </template>
+      <InputTextBase
+        class="mb-3"
+        label="Nombre completo"
+        name="full_name"
+        placeholder="Escribe tu nombre completo"
+      >
+      </InputTextBase>
+      <TextAreaBase
+        label="Descríbete a ti mismo"
+        name="description"
+        placeholder="Escribe tu descripción"
+      ></TextAreaBase>
+      <div class="mt-5">
+        <h3 class="font-semibold mb-3 text-xl">Seleccione su género</h3>
+        <RadioBase label="Masculino" name="gender" value="male"></RadioBase>
+        <RadioBase label="Femenino" name="gender" value="female"></RadioBase>
+      </div>
+      <div class="mt-5">
+        <h3 class="font-semibold mb-3 text-xl">Selecciona las opciones que quieras</h3>
+        <CheckboxBase label="Opción 1" name="opciones" value="1"></CheckboxBase>
+        <CheckboxBase label="Opcion 2" name="opciones" value="2"></CheckboxBase>
+      </div>
+      <FileBase accept="application/pdf" label="Subir archivo" name="file"></FileBase>
+    </CardBase>
+  </form>
 </template>
-
 <style scoped></style>

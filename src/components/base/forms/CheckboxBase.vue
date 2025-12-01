@@ -6,9 +6,6 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  placeholder: {
-    type: String,
-  },
   value: {
     type: String,
   },
@@ -16,21 +13,13 @@ const props = defineProps({
     type: String,
   },
 })
-const id = 'input_password_' + props.name
+const id = 'input_checkbox_' + props.name + '_' + props.value
 </script>
 
 <template>
-  <div class="flex flex-col gap-2">
+  <div class="flex gap-2">
+    <input :id="id" :name="name" :value="value" type="checkbox" />
     <LabelBase v-if="label" :for="id" class="block font-semibold">{{ label }}</LabelBase>
-    <input
-      :id="id"
-      :name="name"
-      :placeholder="placeholder"
-      :value="value"
-      autocomplete="current-password"
-      class="border-slate-400 border-2 rounded-xl px-4 py-2"
-      type="password"
-    />
   </div>
 </template>
 
