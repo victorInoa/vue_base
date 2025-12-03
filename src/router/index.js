@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
 
 const router = createRouter({
+  linkActiveClass: 'text-indigo-500',
+  linkExactActiveClass: 'text-indigo-700',
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
@@ -30,8 +32,10 @@ const router = createRouter({
     },
     {
       path: '/examples',
+      redirect: '/examples/forms',
+      name: 'examples',
+      meta: { title: 'Examples' },
       children: [
-        { path: '', component: () => import('@/views/examples/Form.vue') },
         {
           path: 'forms',
           name: 'exampleForms',
@@ -45,6 +49,12 @@ const router = createRouter({
           component: () => import('@/views/examples/Emiter.vue'),
         },
       ],
+    },
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      meta: { title: 'Dashboard de la plataforma' },
+      component: () => import('@/views/DashBoardView.vue'),
     },
   ],
 })

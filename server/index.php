@@ -48,26 +48,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_POST = array_merge($_POST, $input);
   }
   if ($_POST["action"] === 'login') {
-    $user_name = $_POST["user_name"];
+    $userEmail = $_POST["user_email"];
     $password  = $_POST["password"];
-    if ($user_name === '' || $password === '') {
+    if ($userEmail === '' || $password === '') {
       echo json_encode(
         [
           'status'  => 'error',
-          'message' => 'No puede haber campos vacios',
+          'message' => 'No puede haber campos vacíos',
           'data'    => [
-            'user_name' => $user_name,
+            'userEmail' => $userEmail,
             'password'  => $password,
           ],
         ],
         JSON_THROW_ON_ERROR
       );
     } else {
-      if ($user_name === 'rustty' && $password === 'password') {
+      if ($userEmail === 'victorinoa16@gmail.com' && $password === 'password') {
         echo json_encode(
           [
             'status'  => 'ok',
             'message' => 'Tienes todo el acceso :D',
+            'data'    => [
+              'id'       => '019ae4eb-394f-7fae-b686-add985b9cd1a',
+              'email'    => $userEmail,
+              'role'     => 'god_admin',
+              'fullName' => 'Victor Inoa',
+            ],
           ],
           JSON_THROW_ON_ERROR
         );
@@ -77,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'status'  => 'warning',
             'message' => 'Debes pasar las credenciales correctas',
             'data'    => [
-              'user_name' => $user_name,
+              'userEmail' => $userEmail,
               'password'  => $password,
             ],
           ],

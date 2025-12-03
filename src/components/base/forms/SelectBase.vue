@@ -17,6 +17,10 @@ const props = defineProps({
     type: Array,
     required: true,
   },
+  required: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const id = 'input_select_' + props.name
@@ -27,6 +31,7 @@ const id = 'input_select_' + props.name
   <select
     :id="id"
     :name="name"
+    :required = required
     :value="value"
     class="border-slate-400 border-2 rounded-xl px-4 py-2"
   >

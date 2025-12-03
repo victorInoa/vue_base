@@ -13,7 +13,7 @@ import DarkModeToggle from '@/components/DarkModeToggle.vue'
         <RouterLink :to="{ name: 'profile' }" class="hover:text-cyan-300" name="profile"
           >Mi perfil</RouterLink
         >
-        <RouterLink :to="{ name: 'exampleForms' }" class="hover:text-cyan-300 relative group/menu">
+        <RouterLink :to="{ name: 'examples' }" class="hover:text-cyan-300 relative group/menu">
           Examples
           <ul
             class="group-hover/menu:block absolute top-6 left-0 hidden border border-slate-400 bg-white p-3 shadow-2xl"
@@ -24,10 +24,15 @@ import DarkModeToggle from '@/components/DarkModeToggle.vue'
               >
             </li>
             <li>
-              <routerLink :to="{name: 'exampleEmiter'}" class="hover:text-red-500">Emiter</routerLink>
+              <routerLink :to="{ name: 'exampleEmiter' }" class="hover:text-red-500"
+                >Emiter</routerLink
+              >
             </li>
           </ul>
         </RouterLink>
+        <RouterLink :to="{ name: 'dashboard' }" class="hover:text-cyan-300" name="dashboard"
+          >DashBoard</RouterLink
+        >
       </nav>
       <div class="flex items-center">
         <DarkModeToggle />

@@ -1,8 +1,8 @@
 <script setup>
-defineProps({ id: { type: String, required: true } })
+defineProps({ for: { type: String, required: true } })
 </script>
 <template>
-  <label :for="id"><slot></slot></label>
+  <label :for="for"><slot></slot></label>
 </template>
 
 <style scoped></style>

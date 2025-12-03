@@ -15,6 +15,10 @@ const props = defineProps({
   label: {
     type: String,
   },
+  required: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const id = 'input_text_' + props.name
@@ -30,6 +34,7 @@ const autocomplete = props.name.replace(/[-_]{1,}/, '')
       :autocomplete="autocomplete"
       :name="name"
       :placeholder="placeholder"
+      :required="required"
       :value="value"
       class="border-slate-400 border-2 rounded-xl px-4 py-2"
       type="text"

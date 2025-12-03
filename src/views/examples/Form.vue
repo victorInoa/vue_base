@@ -6,28 +6,31 @@ import ButtonBase from '@/components/base/forms/ButtonBase.vue'
 import { Icon } from '@iconify/vue'
 import CardBase from '@/components/base/CardBase.vue'
 import axios from 'axios'
-import Swal from 'sweetalert2'
 import { alertBase } from '@/composables/SweetAlerts'
-import { onMounted } from 'vue'
-import LabelBase from '@/components/base/forms/LabelBase.vue'
+import { onMounted, ref } from 'vue'
 import TextAreaBase from '@/components/base/forms/TextAreaBase.vue'
 import RadioBase from '@/components/base/forms/RadioBase.vue'
 import CheckboxBase from '@/components/base/forms/CheckboxBase.vue'
 import FileBase from '@/components/base/forms/FileBase.vue'
+import { useCounterStore } from '@/stores/auth.js'
+import router from '@/router/index.js'
+
+const sendingLoginForm = ref(false)
 
 const handleSubmit = () => {
   console.log('----submitting')
   const formData = new FormData(event.target)
   //console.log(formData)
-  console.log(formData.get('user_name'))
+  console.log(formData.get('user_email'))
   console.log(formData.get('password'))
   login(formData)
 }
 
 async function login(formData) {
   try {
+    sendingLoginForm.value = true
     const response = await axios.post('', {
-      user_name: formData.get('user_name'),
+      user_email: formData.get('user_email'),
       password: formData.get('password'),
       action: 'login',
     })
@@ -42,19 +45,39 @@ async function login(formData) {
     if (response.data.status === 'warning') {
       await alertBase(
         response.data.message +
-          '\n Datos pasados: <strong>Nombre:</strong> ' +
-          response.data.data.user_name +
+          '\n Datos pasados: <strong>Email:</strong> ' +
+          response.data.data.userEmail +
           ' <strong>Password:</strong> ' +
           response.data.data.password,
         'warning',
         'Advertencia',
-        'Footer',
+        '<strong>Email:</strong> victorinoa16@gmail.com, <strong>Password:</strong> password',
       )
     }
     if (response.data.status === 'ok') {
-      await alertBase(response.data.message, 'success', 'Exito', 'Footer')
+      await alertBase(response.data.message, 'success', 'Exito', 'Footer').then(() => {
+        const authStore = useCounterStore()
+        authStore.setUserInfo(
+          response.data.data.id,
+          response.data.data.email,
+          response.data.data.role,
+          response.data.data.fullName,
+        )
+
+        console.log(authStore.UserInfo)
+
+        router.push({ name: 'dashboard' })
+      })
     }
+
+    sendingLoginForm.value = false
   } catch (error) {
+    await alertBase(
+      `<strong>No se pudo hacer la conexión</strong> <br>\n` + error.message,
+      'error',
+      'Error',
+    )
+    sendingLoginForm.value = false
     console.error('Error al hacerlo: ' + error.message)
   }
 }
@@ -72,12 +95,7 @@ onMounted(() => {
       <template #header>
         <h2>Formulario de registro</h2>
       </template>
-      <InputTextBase
-        class="mb-3"
-        label="Usuario"
-        name="user_name"
-        placeholder="Escribe tu nombre de usuario"
-      />
+      <InputTextBase class="mb-3" label="Email" name="user_email" placeholder="Escribe tu email" />
       <InputPasswordBase
         class="mb-3"
         label="Contraseña"
@@ -85,9 +103,14 @@ onMounted(() => {
         placeholder="Escribe tu contraseña"
       />
       <template #footer>
-        <ButtonBase type="submit" variant="gradient">
-          <Icon class="mr-2 inline" icon="fluent-color:send-clock-20" />
-          Enviar
+        <ButtonBase :disabled="sendingLoginForm" type="submit" variant="gradient">
+          <template v-if="sendingLoginForm">
+            <Icon class="mr-2 inline" icon="svg-spinners:pulse-2" /> Sending request
+          </template>
+          <template v-else>
+            <Icon class="mr-2 inline" icon="fluent-color:send-clock-20" />
+            Enviar
+          </template>
         </ButtonBase>
       </template>
     </CardBase>
@@ -125,7 +148,7 @@ onMounted(() => {
       <div class="mt-5">
         <h3 class="font-semibold mb-3 text-xl">Selecciona las opciones que quieras</h3>
         <CheckboxBase label="Opción 1" name="opciones" value="1"></CheckboxBase>
-        <CheckboxBase label="Opcion 2" name="opciones" value="2"></CheckboxBase>
+        <CheckboxBase label="Opción 2" name="opciones" value="2"></CheckboxBase>
       </div>
       <FileBase accept="application/pdf" label="Subir archivo" name="file"></FileBase>
     </CardBase>
