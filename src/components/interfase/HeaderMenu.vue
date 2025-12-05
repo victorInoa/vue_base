@@ -1,6 +1,10 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 import DarkModeToggle from '@/components/DarkModeToggle.vue'
+import UserInfoHeader from '@/components/interfase/UserInfoHeader.vue'
+import { useAuthStore } from '@/stores/auth.js'
+
+const authStore = useAuthStore()
 </script>
 
 <template>
@@ -30,30 +34,18 @@ import DarkModeToggle from '@/components/DarkModeToggle.vue'
             </li>
           </ul>
         </RouterLink>
-        <RouterLink :to="{ name: 'dashboard' }" class="hover:text-cyan-300" name="dashboard"
+        <RouterLink
+          v-if="authStore.UserInfo"
+          :to="{ name: 'dashboard' }"
+          class="hover:text-cyan-300"
+          name="dashboard"
           >DashBoard</RouterLink
         >
       </nav>
       <div class="flex items-center">
         <DarkModeToggle />
       </div>
-      <div class="items-center space-x-4 hidden sm:flex">
-        <div class="flex flex-col space-y-1">
-          <a
-            class="font-semibold text-gray-800 transition-colors duration-300 dark:text-gray-200 sm:text-lg dark:hover:text-primary hover:text-primary hover:underline"
-            href="https://www.creative-tim.com/twcomponents/component/white-footer"
-            >Victor Inoa</a
-          >
-        </div>
-        <a
-          class="flex-shrink-0 w-10 h-10 overflow-hidden rounded-full"
-          href="https://www.creative-tim.com/twcomponents/u/ragandroll"
-          ><img
-            alt="RagAndRoll"
-            class="object-cover w-full h-full"
-            src="/assets/profiles/vinoa.jpg"
-        /></a>
-      </div>
+      <UserInfoHeader />
     </div>
   </header>
 </template>

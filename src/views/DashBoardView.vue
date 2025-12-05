@@ -1,11 +1,11 @@
 <script setup>
 import SectionTitle from '@/components/SectionTitle.vue'
 import { onMounted } from 'vue'
-import { useCounterStore } from '@/stores/auth.js'
+import { useAuthStore } from '@/stores/auth.js'
 
 onMounted(() => {
   console.log('DashBoard mounted')
-  const authStore = useCounterStore()
+  const authStore = useAuthStore()
 
   console.log(authStore.UserInfo)
 })

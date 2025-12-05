@@ -1,11 +1,30 @@
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { defineStore } from 'pinia'
 
-export const useCounterStore = defineStore('auth', () => {
-  const UserInfo = ref(null)
+const STORAGE_KEY = 'auth_user_info'
+
+export const useAuthStore = defineStore('auth', () => {
+  // Load user info from localStorage on initialization
+  const storedUser = localStorage.getItem(STORAGE_KEY)
+  const UserInfo = ref(storedUser ? JSON.parse(storedUser) : null)
+
+  // Watch for changes to UserInfo and save to localStorage
+  watch(UserInfo, (newValue) => {
+    if (newValue) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(newValue))
+    } else {
+      localStorage.removeItem(STORAGE_KEY)
+    }
+  }, { deep: true })
+
   function setUserInfo(id, email, role, fullName) {
-    UserInfo.value = { id: id, email: email, fullName: fullName, role: role }
+    UserInfo.value = { id, email, role, fullName }
   }
 
-  return { UserInfo, setUserInfo }
+  // Add a clear function to log out
+  function clearUserInfo() {
+    UserInfo.value = null
+  }
+
+  return { UserInfo, setUserInfo, clearUserInfo }
 })

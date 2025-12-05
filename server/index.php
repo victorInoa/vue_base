@@ -69,10 +69,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'status'  => 'ok',
             'message' => 'Tienes todo el acceso :D',
             'data'    => [
-              'id'       => '019ae4eb-394f-7fae-b686-add985b9cd1a',
+              'id'       => '0065ttt-394f-7fae-b686-add985b9cd1a',
               'email'    => $userEmail,
-              'role'     => 'god_admin',
-              'fullName' => 'Victor Inoa',
+              'role'     => 'any',
+              'fullName' => 'Juan de los Palotes',
             ],
           ],
           JSON_THROW_ON_ERROR
