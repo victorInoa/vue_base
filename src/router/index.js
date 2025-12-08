@@ -1,9 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
 
+import { globalsStore } from '@/stores/globals.js'
+
 const router = createRouter({
-  linkActiveClass: 'text-indigo-500',
-  linkExactActiveClass: 'text-indigo-700',
+  //linkActiveClass: 'text-two',
+  //linkExactActiveClass: 'text-two',
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
@@ -11,6 +13,32 @@ const router = createRouter({
       name: 'home',
       meta: { title: 'Home' },
       component: HomeView,
+    },
+    {
+      path: '/content',
+      redirect: '/content/news',
+      name: 'content',
+      meta: { title: 'Contenido' },
+      children: [
+        {
+          path: 'news',
+          name: 'contentNews',
+          meta: { title: 'Noticias' },
+          component: () => import('@/views/EvidencesView.vue'),
+        },
+        {
+          path: 'opinions',
+          name: 'contentOpinions',
+          meta: { title: 'Opiniones' },
+          component: () => import('@/views/EvidencesView.vue'),
+        },
+        {
+          path: 'editorial',
+          name: 'contentEditorial',
+          meta: { title: 'Editorial' },
+          component: () => import('@/views/EvidencesView.vue'),
+        },
+      ],
     },
     {
       path: '/reports',
@@ -59,15 +87,20 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      meta: { title: 'Login' },
+      meta: { title: 'Iniciar sesión' },
       component: () => import('@/views/LoginView.vue'),
     },
   ],
 })
 
 router.beforeEach((to, from, next) => {
-  document.title = to.meta.title + ' | Vue Base' || 'Vue Base, starter kit'
+  const globals = globalsStore()
+  document.title = to.meta.title.toString() + ' | Vue Base' || 'Vue Base'
+  //---------------------------------------------------------------------------------------
+  //todo: hasta ahora encuentro esta la formas limpia de exponer la ruta actual y la ruta anterior
+  globals.setCurrentRoute(to)
+  globals.setBeforeRoute(from)
+  //----------------------------------------------------------------------------------
   next()
 })
-
 export default router

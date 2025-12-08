@@ -35,7 +35,7 @@ const autocomplete = props.name.replace(/[-_]{1,}/, '')
     :placeholder="placeholder"
     :rows="rows"
     :value="value"
-    class="border-slate-400 border-2 rounded-xl px-4 py-2 w-full"
+    class="border-gray-400 border-2 rounded-xl px-4 py-2 w-full"
   >
   </textarea>
 </template>

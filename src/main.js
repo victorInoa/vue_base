@@ -10,10 +10,10 @@ import axios from 'axios'
 //*************************************/
 //*Fonts from https://fontsource.org***/
 //*************************************/
-// Supports weights 400-700
-import '@fontsource-variable/caveat'
-// Supports weights 200-700
-import '@fontsource-variable/oswald'
+// Supports weights 300-800
+import '@fontsource-variable/open-sans'
+// Supports weights 100-900
+import '@fontsource/poppins'
 /*End fonts****************************/
 import App from './App.vue'
 import router from './router'

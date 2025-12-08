@@ -1,44 +1,26 @@
 <script setup>
-/* global document, localStorage */
-import { ref, onMounted } from 'vue'
+import { onMounted } from 'vue'
+import { darkModeStore } from '@/stores/darkMode.js'
 
-const isDark = ref(false)
-const checkDarkMode = () => {
-  if (
-    localStorage.theme === 'dark' ||
-    (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-  ) {
-    isDark.value = true
-    document.documentElement.classList.add('dark')
-  } else {
-    isDark.value = false
-    document.documentElement.classList.remove('dark')
-  }
-}
+const themeDarkMode = darkModeStore()
 
 const toggleDarkMode = () => {
-  isDark.value = !isDark.value
-  if (isDark.value) {
-    localStorage.theme = 'dark'
-  } else {
-    localStorage.theme = 'light'
-  }
-  checkDarkMode()
+  themeDarkMode.toggleDarkMode()
 }
 
 onMounted(() => {
-  checkDarkMode()
+  themeDarkMode.checkDarkMode()
 })
 </script>
 <template>
   <button
-    :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
-    class="p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-900 transition-colors duration-200"
+    :aria-label="themeDarkMode.isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+    class="p-2 rounded-full focus:outline-none transition-colors duration-200 hover:cursor-pointer"
     type="button"
     @click="toggleDarkMode"
   >
     <svg
-      v-if="!isDark"
+      v-if="!themeDarkMode.isDark"
       class="h-6 w-6 text-yellow-300"
       fill="none"
       stroke="currentColor"

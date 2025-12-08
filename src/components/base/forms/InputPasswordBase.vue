@@ -28,7 +28,7 @@ const id = 'input_password_' + props.name
       :placeholder="placeholder"
       :value="value"
       autocomplete="current-password"
-      class="border-slate-400 border-2 rounded-xl px-4 py-2"
+      class="border-gray-400 border-2 rounded-xl px-4 py-2"
       type="password"
     />
   </div>

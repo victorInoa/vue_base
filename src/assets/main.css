@@ -1,24 +1,29 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 @theme {
-  --font-cave: 'Caveat Variable', cursive;
-  --font-osw: 'Oswald Variable', sans-serif;
-  /*--primary-color: #264093;*/
-  /*--secondary-color: green;*/
-  /*--outline-color: red;*/
-  /*--text-color: #264093;*/
+  --font-opens: 'Open Sans Variable', sans-serif;
+  --font-poppins: 'Poppins Variable', sans-serif;
+  --default-font-family: var(--font-poppins);
+  --default-text-color: #7f7f7f;
+  --color-one: #f9d226;
+  --color-two: #e152aa;
 }
-/*customs classes*/
-h1 {
-  /*@apply font-cave*/
-  /*@apply font-[300] font-[var(--font-osw)]*/
+@layer utilities {
+  .font-accent {
+    @apply font-[var(--font-opens)]
+  }
+  .font-regular {
+    @apply font-[var(--font-poppins)]
+  }
 }
-/*
-.bg-primary {
-  @apply text-white hover:text-red-100;
-  background-color: var(--primary-color);
+body {
+  /*@apply bg-gradient-to-br from-gray-100 from-20% via-90% via-gray-400 to-gray-400;*/
+  @apply bg-gray-100 dark:bg-gray-800;
 }
-.dark .bg-primary {
-  background-color: red;
+/*nav bar*/
+nav > .router-link-active, .router-link-active.router-link-exact-active {
+  @apply text-two;
 }
-*/
+nav > .router-link-active {
+  @apply border-b-one border-b-2 top-2 pb-[calc(2rem+4px)] self-center relative;
+}

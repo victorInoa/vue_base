@@ -77,7 +77,7 @@ onBeforeUnmount(() => {
 <template>
   <sectionTitle>Mi perfil</sectionTitle>
 
-  <div class="h-full text-slate-300">
+  <div class="h-full text-gray-300">
     <div class="rounded-lg shadow-xl pb-8 mt-10">
       <div class="absolute right-12 mt-4 rounded" x-data="{ openSettings: false }">
         <buttonBase @click="openSettings = !openSettings">
@@ -98,14 +98,14 @@ onBeforeUnmount(() => {
         </buttonBase>
         <div
           v-show="openSettings"
-          class="bg-white absolute right-0 w-40 py-2 mt-1 border border-slate-200 shadow-2xl"
+          class="bg-white absolute right-0 w-40 py-2 mt-1 border border-gray-200 shadow-2xl"
           @click.self="openSettings = false"
         >
           <div class="py-2 border-b">
-            <p class="text-slate-400 text-xs px-3 uppercase mb-3 font-bold">Settings</p>
+            <p class="text-gray-400 text-xs px-3 uppercase mb-3 font-bold">Settings</p>
             <a class="flex items-center space-x-2 mb-3 px-3" href="#">
               <svg
-                class="h-4 w-4 text-slate-400"
+                class="h-4 w-4 text-gray-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -118,11 +118,11 @@ onBeforeUnmount(() => {
                   stroke-width="2"
                 ></path>
               </svg>
-              <span class="text-sm text-slate-700">Share Profile</span>
+              <span class="text-sm text-gray-700">Share Profile</span>
             </a>
             <a class="flex items-center space-x-2 mb-3 px-3" href="#">
               <svg
-                class="h-4 w-4 text-slate-400"
+                class="h-4 w-4 text-gray-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -135,11 +135,11 @@ onBeforeUnmount(() => {
                   stroke-width="2"
                 ></path>
               </svg>
-              <span class="text-sm text-slate-700">Block User</span>
+              <span class="text-sm text-gray-700">Block User</span>
             </a>
             <a class="flex items-center space-x-2 mb-3 px-3" href="#">
               <svg
-                class="h-4 w-4 text-slate-400"
+                class="h-4 w-4 text-gray-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -152,14 +152,14 @@ onBeforeUnmount(() => {
                   stroke-width="2"
                 ></path>
               </svg>
-              <span class="text-sm text-slate-700">More Info</span>
+              <span class="text-sm text-gray-700">More Info</span>
             </a>
           </div>
           <div class="py-2">
-            <p class="text-slate-400 text-xs px-3 uppercase mb-3 font-bold">Feedback</p>
+            <p class="text-gray-400 text-xs px-3 uppercase mb-3 font-bold">Feedback</p>
             <a class="flex items-center space-x-2 mb-3 px-3" href="#">
               <svg
-                class="h-4 w-4 text-slate-400"
+                class="h-4 w-4 text-gray-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -172,7 +172,7 @@ onBeforeUnmount(() => {
                   stroke-width="2"
                 ></path>
               </svg>
-              <span class="text-sm text-slate-700">Report</span>
+              <span class="text-sm text-gray-700">Report</span>
             </a>
           </div>
         </div>
@@ -184,7 +184,7 @@ onBeforeUnmount(() => {
           <p class="text-2xl">Víctor Inoa</p>
           <span class="bg-blue-500 rounded-full p-1" title="Verified">
             <svg
-              class="text-slate-100 h-2.5 w-2.5"
+              class="text-gray-100 h-2.5 w-2.5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -199,8 +199,8 @@ onBeforeUnmount(() => {
             </svg>
           </span>
         </div>
-        <p class="text-slate-700">Senior Software Engineer at Tailwind CSS</p>
-        <p class="text-sm text-slate-500">New York, USA</p>
+        <p class="text-gray-700">Senior Software Engineer at Tailwind CSS</p>
+        <p class="text-sm text-gray-500">New York, USA</p>
       </div>
       <div class="flex-1 flex flex-col items-center lg:items-end justify-end px-8 mt-2">
         <div class="flex items-center space-x-4 mt-2">
@@ -239,35 +239,35 @@ onBeforeUnmount(() => {
     <div class="my-4 flex flex-col 2xl:flex-row space-y-4 2xl:space-y-0 2xl:space-x-4">
       <div class="w-full flex flex-col 2xl:w-1/3">
         <div class="flex-1 bg-white rounded-lg shadow-xl p-8">
-          <h4 class="text-xl text-slate-900 font-bold">Personal Info</h4>
-          <ul class="mt-2 text-slate-700">
+          <h4 class="text-xl text-gray-900 font-bold">Personal Info</h4>
+          <ul class="mt-2 text-gray-700">
             <li class="flex border-y py-2">
               <span class="font-bold w-24">Full name:</span>
-              <span class="text-slate-700">Amanda S. Ross</span>
+              <span class="text-gray-700">Amanda S. Ross</span>
             </li>
             <li class="flex border-b py-2">
               <span class="font-bold w-24">Birthday:</span>
-              <span class="text-slate-700">24 Jul, 1991</span>
+              <span class="text-gray-700">24 Jul, 1991</span>
             </li>
             <li class="flex border-b py-2">
               <span class="font-bold w-24">Joined:</span>
-              <span class="text-slate-700">10 Jan 2022 (25 days ago)</span>
+              <span class="text-gray-700">10 Jan 2022 (25 days ago)</span>
             </li>
             <li class="flex border-b py-2">
               <span class="font-bold w-24">Mobile:</span>
-              <span class="text-slate-700">(123) 123-1234</span>
+              <span class="text-gray-700">(123) 123-1234</span>
             </li>
             <li class="flex border-b py-2">
               <span class="font-bold w-24">Email:</span>
-              <span class="text-slate-700">amandaross@example.com</span>
+              <span class="text-gray-700">amandaross@example.com</span>
             </li>
             <li class="flex border-b py-2">
               <span class="font-bold w-24">Location:</span>
-              <span class="text-slate-700">New York, US</span>
+              <span class="text-gray-700">New York, US</span>
             </li>
             <li class="flex border-b py-2">
               <span class="font-bold w-24">Languages:</span>
-              <span class="text-slate-700">English, Spanish</span>
+              <span class="text-gray-700">English, Spanish</span>
             </li>
             <li class="flex items-center border-b py-2 space-x-2">
               <span class="font-bold w-24">Elsewhere:</span>
@@ -346,7 +346,7 @@ onBeforeUnmount(() => {
           </ul>
         </div>
         <div class="flex-1 bg-white rounded-lg shadow-xl mt-4 p-8">
-          <h4 class="text-xl text-slate-900 font-bold">Activity log</h4>
+          <h4 class="text-xl text-gray-900 font-bold">Activity log</h4>
           <div class="relative px-4">
             <div
               class="absolute h-full border border-dashed border-opacity-20 border-secondary"
@@ -359,7 +359,7 @@ onBeforeUnmount(() => {
               </div>
               <div class="w-11/12">
                 <p class="text-sm">Profile informations changed.</p>
-                <p class="text-xs text-slate-500">3 min ago</p>
+                <p class="text-xs text-gray-500">3 min ago</p>
               </div>
             </div>
             <!-- end::Timeline item -->
@@ -373,7 +373,7 @@ onBeforeUnmount(() => {
                 <p class="text-sm">
                   Connected with <a class="text-blue-600 font-bold" href="#">Colby Covington</a>.
                 </p>
-                <p class="text-xs text-slate-500">15 min ago</p>
+                <p class="text-xs text-gray-500">15 min ago</p>
               </div>
             </div>
             <!-- end::Timeline item -->
@@ -387,7 +387,7 @@ onBeforeUnmount(() => {
                 <p class="text-sm">
                   Invoice <a class="text-blue-600 font-bold" href="#">#4563</a> was created.
                 </p>
-                <p class="text-xs text-slate-500">57 min ago</p>
+                <p class="text-xs text-gray-500">57 min ago</p>
               </div>
             </div>
             <!-- end::Timeline item -->
@@ -402,7 +402,7 @@ onBeforeUnmount(() => {
                   Message received from
                   <a class="text-blue-600 font-bold" href="#">Cecilia Hendric</a>.
                 </p>
-                <p class="text-xs text-slate-500">1 hour ago</p>
+                <p class="text-xs text-gray-500">1 hour ago</p>
               </div>
             </div>
             <!-- end::Timeline item -->
@@ -416,7 +416,7 @@ onBeforeUnmount(() => {
                 <p class="text-sm">
                   New order received <a class="text-blue-600 font-bold" href="#">#OR9653</a>.
                 </p>
-                <p class="text-xs text-slate-500">2 hours ago</p>
+                <p class="text-xs text-gray-500">2 hours ago</p>
               </div>
             </div>
             <!-- end::Timeline item -->
@@ -431,7 +431,7 @@ onBeforeUnmount(() => {
                   Message received from
                   <a class="text-blue-600 font-bold" href="#">Jane Stillman</a>.
                 </p>
-                <p class="text-xs text-slate-500">2 hours ago</p>
+                <p class="text-xs text-gray-500">2 hours ago</p>
               </div>
             </div>
             <!-- end::Timeline item -->
@@ -440,8 +440,8 @@ onBeforeUnmount(() => {
       </div>
       <div class="flex flex-col w-full 2xl:w-2/3">
         <div class="flex-1 bg-white rounded-lg shadow-xl p-8">
-          <h4 class="text-xl text-slate-900 font-bold">About</h4>
-          <p class="mt-2 text-slate-700">
+          <h4 class="text-xl text-gray-900 font-bold">About</h4>
+          <p class="mt-2 text-gray-700">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt voluptates obcaecati
             numquam error et ut fugiat asperiores. Sunt nulla ad incidunt laboriosam, laudantium est
             unde natus cum numquam, neque facere. Lorem ipsum dolor sit amet consectetur adipisicing
@@ -450,14 +450,14 @@ onBeforeUnmount(() => {
           </p>
         </div>
         <div class="flex-1 bg-white rounded-lg shadow-xl mt-4 p-8">
-          <h4 class="text-xl text-slate-900 font-bold">Statistics</h4>
+          <h4 class="text-xl text-gray-900 font-bold">Statistics</h4>
 
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-4">
-            <div class="px-6 py-6 bg-slate-100 border border-slate-300 rounded-lg shadow-xl">
+            <div class="px-6 py-6 bg-gray-100 border border-gray-300 rounded-lg shadow-xl">
               <div class="flex items-center justify-between">
                 <span class="font-bold text-sm text-indigo-600">Total Revenue</span>
                 <span
-                  class="text-xs bg-slate-200 hover:bg-slate-500 text-slate-500 hover:text-slate-200 px-2 py-1 rounded-lg transition duration-200 cursor-default"
+                  class="text-xs bg-gray-200 hover:bg-gray-500 text-gray-500 hover:text-gray-200 px-2 py-1 rounded-lg transition duration-200 cursor-default"
                   >7 days</span
                 >
               </div>
@@ -496,17 +496,17 @@ onBeforeUnmount(() => {
                           stroke-width="2"
                         ></path>
                       </svg>
-                      <span class="font-bold text-sm text-slate-500 ml-0.5">3%</span>
+                      <span class="font-bold text-sm text-gray-500 ml-0.5">3%</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="px-6 py-6 bg-slate-100 border border-slate-300 rounded-lg shadow-xl">
+            <div class="px-6 py-6 bg-gray-100 border border-gray-300 rounded-lg shadow-xl">
               <div class="flex items-center justify-between">
                 <span class="font-bold text-sm text-green-600">New Orders</span>
                 <span
-                  class="text-xs bg-slate-200 hover:bg-slate-500 text-slate-500 hover:text-slate-200 px-2 py-1 rounded-lg transition duration-200 cursor-default"
+                  class="text-xs bg-gray-200 hover:bg-gray-500 text-gray-500 hover:text-gray-200 px-2 py-1 rounded-lg transition duration-200 cursor-default"
                   >7 days</span
                 >
               </div>
@@ -545,17 +545,17 @@ onBeforeUnmount(() => {
                           stroke-width="2"
                         ></path>
                       </svg>
-                      <span class="font-bold text-sm text-slate-500 ml-0.5">5%</span>
+                      <span class="font-bold text-sm text-gray-500 ml-0.5">5%</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="px-6 py-6 bg-slate-100 border border-slate-300 rounded-lg shadow-xl">
+            <div class="px-6 py-6 bg-gray-100 border border-gray-300 rounded-lg shadow-xl">
               <div class="flex items-center justify-between">
                 <span class="font-bold text-sm text-blue-600">New Connections</span>
                 <span
-                  class="text-xs bg-slate-200 hover:bg-slate-500 text-slate-500 hover:text-slate-200 px-2 py-1 rounded-lg transition duration-200 cursor-default"
+                  class="text-xs bg-gray-200 hover:bg-gray-500 text-gray-500 hover:text-gray-200 px-2 py-1 rounded-lg transition duration-200 cursor-default"
                   >7 days</span
                 >
               </div>
@@ -594,7 +594,7 @@ onBeforeUnmount(() => {
                           stroke-width="2"
                         ></path>
                       </svg>
-                      <span class="font-bold text-sm text-slate-500 ml-0.5">7%</span>
+                      <span class="font-bold text-sm text-gray-500 ml-0.5">7%</span>
                     </div>
                   </div>
                 </div>
@@ -613,12 +613,12 @@ onBeforeUnmount(() => {
         </div>
       </div>
     </div>
-    <div class="rounded-lg shadow-xl p-8 border-2 border-slate-600">
+    <div class="rounded-lg shadow-xl p-8 border-2 border-gray-600">
       <div class="flex items-center justify-between">
-        <h4 class="text-xl text-slate-900 font-bold">Connections (532)</h4>
+        <h4 class="text-xl text-gray-900 font-bold">Connections (532)</h4>
         <a href="#" title="View All">
           <svg
-            class="h-6 w-6 text-slate-300 hover:text-slate-700"
+            class="h-6 w-6 text-gray-300 hover:text-gray-700"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -637,7 +637,7 @@ onBeforeUnmount(() => {
         class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-8 gap-8 mt-8"
       >
         <a
-          class="flex flex-col items-center justify-center text-slate-400 hover:text-slate-300"
+          class="flex flex-col items-center justify-center text-gray-400 hover:text-gray-300"
           href="#"
           title="View Profile"
         >
@@ -646,10 +646,10 @@ onBeforeUnmount(() => {
             src="https://vojislavd.com/ta-template-demo/assets/img/connections/connection1.jpg"
           />
           <p class="text-center font-bold text-sm mt-1">Diane Aguilar</p>
-          <p class="text-xs text-slate-500 text-center">UI/UX Design at Upwork</p>
+          <p class="text-xs text-gray-500 text-center">UI/UX Design at Upwork</p>
         </a>
         <a
-          class="flex flex-col items-center justify-center text-slate-400 hover:text-slate-300"
+          class="flex flex-col items-center justify-center text-gray-400 hover:text-gray-300"
           href="#"
           title="View Profile"
         >
@@ -658,10 +658,10 @@ onBeforeUnmount(() => {
             src="https://vojislavd.com/ta-template-demo/assets/img/connections/connection2.jpg"
           />
           <p class="text-center font-bold text-sm mt-1">Frances Mather</p>
-          <p class="text-xs text-slate-500 text-center">Software Engineer at Facebook</p>
+          <p class="text-xs text-gray-500 text-center">Software Engineer at Facebook</p>
         </a>
         <a
-          class="flex flex-col items-center justify-center text-slate-400 hover:text-slate-300"
+          class="flex flex-col items-center justify-center text-gray-400 hover:text-gray-300"
           href="#"
           title="View Profile"
         >
@@ -670,10 +670,10 @@ onBeforeUnmount(() => {
             src="https://vojislavd.com/ta-template-demo/assets/img/connections/connection3.jpg"
           />
           <p class="text-center font-bold text-sm mt-1">Carlos Friedrich</p>
-          <p class="text-xs text-slate-500 text-center">Front-End Developer at Tailwind CSS</p>
+          <p class="text-xs text-gray-500 text-center">Front-End Developer at Tailwind CSS</p>
         </a>
         <a
-          class="flex flex-col items-center justify-center text-slate-400 hover:text-slate-300"
+          class="flex flex-col items-center justify-center text-gray-400 hover:text-gray-300"
           href="#"
           title="View Profile"
         >
@@ -682,10 +682,10 @@ onBeforeUnmount(() => {
             src="https://vojislavd.com/ta-template-demo/assets/img/connections/connection4.jpg"
           />
           <p class="text-center font-bold text-sm mt-1">Donna Serrano</p>
-          <p class="text-xs text-slate-500 text-center">System Engineer at Tesla</p>
+          <p class="text-xs text-gray-500 text-center">System Engineer at Tesla</p>
         </a>
         <a
-          class="flex flex-col items-center justify-center text-slate-400 hover:text-slate-300"
+          class="flex flex-col items-center justify-center text-gray-400 hover:text-gray-300"
           href="#"
           title="View Profile"
         >
@@ -694,10 +694,10 @@ onBeforeUnmount(() => {
             src="https://vojislavd.com/ta-template-demo/assets/img/connections/connection5.jpg"
           />
           <p class="text-center font-bold text-sm mt-1">Randall Tabron</p>
-          <p class="text-xs text-slate-500 text-center">Software Developer at Upwork</p>
+          <p class="text-xs text-gray-500 text-center">Software Developer at Upwork</p>
         </a>
         <a
-          class="flex flex-col items-center justify-center text-slate-400 hover:text-slate-300"
+          class="flex flex-col items-center justify-center text-gray-400 hover:text-gray-300"
           href="#"
           title="View Profile"
         >
@@ -706,10 +706,10 @@ onBeforeUnmount(() => {
             src="https://vojislavd.com/ta-template-demo/assets/img/connections/connection6.jpg"
           />
           <p class="text-center font-bold text-sm mt-1">John McCleary</p>
-          <p class="text-xs text-slate-500 text-center">Software Engineer at Laravel</p>
+          <p class="text-xs text-gray-500 text-center">Software Engineer at Laravel</p>
         </a>
         <a
-          class="flex flex-col items-center justify-center text-slate-400 hover:text-slate-300"
+          class="flex flex-col items-center justify-center text-gray-400 hover:text-gray-300"
           href="#"
           title="View Profile"
         >
@@ -718,10 +718,10 @@ onBeforeUnmount(() => {
             src="https://vojislavd.com/ta-template-demo/assets/img/connections/connection7.jpg"
           />
           <p class="text-center font-bold text-sm mt-1">Amanda Noble</p>
-          <p class="text-xs text-slate-500 text-center">Graphic Designer at Tailwind CSS</p>
+          <p class="text-xs text-gray-500 text-center">Graphic Designer at Tailwind CSS</p>
         </a>
         <a
-          class="flex flex-col items-center justify-center text-slate-400 hover:text-slate-300"
+          class="flex flex-col items-center justify-center text-gray-400 hover:text-gray-300"
           href="#"
           title="View Profile"
         >
@@ -730,10 +730,10 @@ onBeforeUnmount(() => {
             src="https://vojislavd.com/ta-template-demo/assets/img/connections/connection8.jpg"
           />
           <p class="text-center font-bold text-sm mt-1">Christine Drew</p>
-          <p class="text-xs text-slate-500 text-center">Senior Android Developer at Google</p>
+          <p class="text-xs text-gray-500 text-center">Senior Android Developer at Google</p>
         </a>
         <a
-          class="flex flex-col items-center justify-center text-slate-400 hover:text-slate-300"
+          class="flex flex-col items-center justify-center text-gray-400 hover:text-gray-300"
           href="#"
           title="View Profile"
         >
@@ -742,10 +742,10 @@ onBeforeUnmount(() => {
             src="https://vojislavd.com/ta-template-demo/assets/img/connections/connection9.jpg"
           />
           <p class="text-center font-bold text-sm mt-1">Lucas Bell</p>
-          <p class="text-xs text-slate-500 text-center">Creative Writer at Upwork</p>
+          <p class="text-xs text-gray-500 text-center">Creative Writer at Upwork</p>
         </a>
         <a
-          class="flex flex-col items-center justify-center text-slate-400 hover:text-slate-300"
+          class="flex flex-col items-center justify-center text-gray-400 hover:text-gray-300"
           href="#"
           title="View Profile"
         >
@@ -754,10 +754,10 @@ onBeforeUnmount(() => {
             src="https://vojislavd.com/ta-template-demo/assets/img/connections/connection10.jpg"
           />
           <p class="text-center font-bold text-sm mt-1">Debra Herring</p>
-          <p class="text-xs text-slate-500 text-center">Co-Founder at Alpine.js</p>
+          <p class="text-xs text-gray-500 text-center">Co-Founder at Alpine.js</p>
         </a>
         <a
-          class="flex flex-col items-center justify-center text-slate-400 hover:text-slate-300"
+          class="flex flex-col items-center justify-center text-gray-400 hover:text-gray-300"
           href="#"
           title="View Profile"
         >
@@ -766,10 +766,10 @@ onBeforeUnmount(() => {
             src="https://vojislavd.com/ta-template-demo/assets/img/connections/connection11.jpg"
           />
           <p class="text-center font-bold text-sm mt-1">Benjamin Farrior</p>
-          <p class="text-xs text-slate-500 text-center">Software Engineer Lead at Microsoft</p>
+          <p class="text-xs text-gray-500 text-center">Software Engineer Lead at Microsoft</p>
         </a>
         <a
-          class="flex flex-col items-center justify-center text-slate-400 hover:text-slate-300"
+          class="flex flex-col items-center justify-center text-gray-400 hover:text-gray-300"
           href="#"
           title="View Profile"
         >
@@ -778,10 +778,10 @@ onBeforeUnmount(() => {
             src="https://vojislavd.com/ta-template-demo/assets/img/connections/connection12.jpg"
           />
           <p class="text-center font-bold text-sm mt-1">Maria Heal</p>
-          <p class="text-xs text-slate-500 text-center">Linux System Administrator at Twitter</p>
+          <p class="text-xs text-gray-500 text-center">Linux System Administrator at Twitter</p>
         </a>
         <a
-          class="flex flex-col items-center justify-center text-slate-400 hover:text-slate-300"
+          class="flex flex-col items-center justify-center text-gray-400 hover:text-gray-300"
           href="#"
           title="View Profile"
         >
@@ -790,10 +790,10 @@ onBeforeUnmount(() => {
             src="https://vojislavd.com/ta-template-demo/assets/img/connections/connection13.jpg"
           />
           <p class="text-center font-bold text-sm mt-1">Edward Ice</p>
-          <p class="text-xs text-slate-500 text-center">Customer Support at Instagram</p>
+          <p class="text-xs text-gray-500 text-center">Customer Support at Instagram</p>
         </a>
         <a
-          class="flex flex-col items-center justify-center text-slate-400 hover:text-slate-300"
+          class="flex flex-col items-center justify-center text-gray-400 hover:text-gray-300"
           href="#"
           title="View Profile"
         >
@@ -802,10 +802,10 @@ onBeforeUnmount(() => {
             src="https://vojislavd.com/ta-template-demo/assets/img/connections/connection14.jpg"
           />
           <p class="text-center font-bold text-sm mt-1">Jeffery Silver</p>
-          <p class="text-xs text-slate-500 text-center">Software Engineer at Twitter</p>
+          <p class="text-xs text-gray-500 text-center">Software Engineer at Twitter</p>
         </a>
         <a
-          class="flex flex-col items-center justify-center text-slate-400 hover:text-slate-300"
+          class="flex flex-col items-center justify-center text-gray-400 hover:text-gray-300"
           href="#"
           title="View Profile"
         >
@@ -814,10 +814,10 @@ onBeforeUnmount(() => {
             src="https://vojislavd.com/ta-template-demo/assets/img/connections/connection15.jpg"
           />
           <p class="text-center font-bold text-sm mt-1">Jennifer Schultz</p>
-          <p class="text-xs text-slate-500 text-center">Project Manager at Google</p>
+          <p class="text-xs text-gray-500 text-center">Project Manager at Google</p>
         </a>
         <a
-          class="flex flex-col items-center justify-center text-slate-400 hover:text-slate-300"
+          class="flex flex-col items-center justify-center text-gray-400 hover:text-gray-300"
           href="#"
           title="View Profile"
         >
@@ -826,7 +826,7 @@ onBeforeUnmount(() => {
             src="https://vojislavd.com/ta-template-demo/assets/img/connections/connection16.jpg"
           />
           <p class="text-center font-bold text-sm mt-1">Joseph Marlatt</p>
-          <p class="text-xs text-slate-500 text-center">Team Lead at Facebook</p>
+          <p class="text-xs text-gray-500 text-center">Team Lead at Facebook</p>
         </a>
       </div>
     </div>

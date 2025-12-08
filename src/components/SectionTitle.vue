@@ -1,5 +1,5 @@
 <template>
-  <h1 class="text-[64px] font-osw font-[300]">
+  <h1 class="text-[38px] font-opens font-bold dark:text-white">
     <slot></slot>
   </h1>
 </template>

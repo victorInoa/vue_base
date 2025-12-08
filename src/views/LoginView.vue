@@ -4,7 +4,9 @@ import InputTextBase from '@/components/base/forms/InputTextBase.vue'
 import { Icon } from '@iconify/vue'
 import CardBase from '@/components/base/CardBase.vue'
 import InputPasswordBase from '@/components/base/forms/InputPasswordBase.vue'
-import SectionTitle from '@/components/SectionTitle.vue'
+
+import { darkModeStore } from '@/stores/darkMode.js'
+
 import { ref } from 'vue'
 import axios from 'axios'
 import { alertBase } from '@/composables/SweetAlerts.js'
@@ -12,6 +14,8 @@ import { useAuthStore } from '@/stores/auth.js'
 import router from '@/router/index.js'
 
 const sendingLoginForm = ref(false)
+
+const themeDarkMode = darkModeStore()
 
 const handleSubmit = () => {
   console.log('----submitting')
@@ -69,7 +73,7 @@ async function login(formData) {
     sendingLoginForm.value = false
   } catch (error) {
     await alertBase(
-      `<strong>No se pudo hacer la conexión</strong> <br>\n` + error.message,
+      '<strong>No se pudo hacer la conexión</strong> <br>\n La plataforma no encuentra el servidor<br> <span class="text-orange-400 font-bold">Favor contactar la administración</span>',
       'error',
       'Error',
     )
@@ -80,13 +84,14 @@ async function login(formData) {
 </script>
 
 <template>
-  <div class="text-center">
-    <section-title>Login</section-title>
+  <div class="text-center h-[100px] mb-5 flex justify-center mt-5">
+    <img v-if="!themeDarkMode.isDark" alt="Vue Base" src="@/assets/logo.svg" />
+    <img v-else alt="Vue Base" src="@/assets/logo-dark.svg" />
   </div>
   <form action="" @submit.prevent="handleSubmit">
-    <CardBase>
+    <CardBase class="w-[90%] md:w-full">
       <template #header>
-        <h2>Formulario de registro</h2>
+        <h2>Iniciar sesión</h2>
       </template>
       <InputTextBase class="mb-3" label="Email" name="user_email" placeholder="Escribe tu email" />
       <InputPasswordBase
@@ -98,10 +103,10 @@ async function login(formData) {
       <template #footer>
         <ButtonBase :disabled="sendingLoginForm" type="submit" variant="gradient">
           <template v-if="sendingLoginForm">
-            <Icon class="mr-2 inline" icon="svg-spinners:pulse-2" /> Sending request
+            <Icon class="mr-2 inline" icon="svg-spinners:pulse-2" /> Entrando a la plataforma
           </template>
           <template v-else>
-            <Icon class="mr-2 inline" icon="fluent-color:send-clock-20" />
+            <Icon class="mr-2 inline" icon="mdi:account-key" />
             Enviar
           </template>
         </ButtonBase>
@@ -109,5 +114,3 @@ async function login(formData) {
     </CardBase>
   </form>
 </template>
-
-<style scoped></style>

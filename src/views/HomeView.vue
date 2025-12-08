@@ -1,16 +1,23 @@
 <script setup>
 import SectionTitle from '@/components/SectionTitle.vue'
 import { useI18n } from 'vue-i18n'
+import CardBase from '@/components/base/CardBase.vue'
+import ButtonBase from '@/components/base/forms/ButtonBase.vue'
+import CardTitle from '@/components/cardTitle.vue'
 const { t } = useI18n()
 
 const i18nVar = t('home.title')
 let apiUrl = import.meta.env.VITE_SERVER_ROOT_URL
+
+const handleCardClick = () => {
+  console.log('Card clicked')
+}
 </script>
 
 <template>
-  <SectionTitle>Home</SectionTitle>
+  <SectionTitle>Sphinx of black quartz, judge my vow</SectionTitle>
 
-  <h2 class="font-[700] font-cave text-3xl">
+  <h2 class="font-[700] font-acce text-3xl">
     Ejemplo de uso de fuentes externas de Font sources de
     <a
       class="underline text-blue-800 hover:text-blue-600"
@@ -28,5 +35,14 @@ let apiUrl = import.meta.env.VITE_SERVER_ROOT_URL
 
     <p><strong>Uso de i18n llamando desde &lt;script setup&gt;:</strong></p>
     <p>{{ i18nVar }}</p>
+  </div>
+  <div class="flex flex-wrap flex-col md:flex-row">
+    <CardBase class="mb-5">
+      <template #header> Card title </template>
+      <p>Description</p>
+      <template #footer>
+        <ButtonBase class="mt-5" @click="handleCardClick">Delete this one</ButtonBase>
+      </template>
+    </CardBase>
   </div>
 </template>

@@ -3,33 +3,25 @@ import { useAuthStore } from '@/stores/auth.js'
 import router from '@/router/index.js'
 const authStore = useAuthStore()
 import { Icon } from '@iconify/vue'
+import { RouterLink } from 'vue-router'
 </script>
 
 <template>
-  <div class="items-center space-x-4 hidden sm:flex">
-    <div v-if="authStore.UserInfo" class="flex flex-col space-y-1 items-end">
-      <a
-        class="font-semibold text-gray-800 transition-colors duration-300 dark:text-gray-200 sm:text-lg dark:hover:text-primary hover:text-primary hover:underline hover:cursor-pointer"
-        @click="router.push({ name: 'profile' })"
-        >{{ authStore.UserInfo.fullName }}</a
-      >
-      <button
-        class="text-indigo-700 hover:text-red-500 hover:cursor-pointer hover:underline"
-        @click="(authStore.clearUserInfo(), router.push({ name: 'home' }))"
-      >
-        Logout
-      </button>
+  <div class="items-center space-x-4 flex group/menu-user relative">
+    <div
+      class="flex-col items-center space-x-4 group-hover/menu-user:block hidden absolute top-11 right-0 z-999"
+    >
+      <ul class="border border-slate-400 bg-white p-5 shadow-2xl rounded-lg z-9999">
+        <li class="pb-4 border-slate-200 border-b-1">
+          <routerLink :to="{ name: 'contentNews' }" class="hover:text-red-500">Noticias</routerLink>
+        </li>
+        <li class="pt-4">
+          <routerLink :to="{ name: 'contentOpinions' }" class="hover:text-red-500"
+            >Opiniones</routerLink
+          >
+        </li>
+      </ul>
     </div>
-    <div v-else class="flex flex-col space-y-1 items-end dark:text-white">
-      Usuario no autenticado
-      <button
-        class="text-indigo-700 hover:text-red-500 hover:cursor-pointer hover:underline"
-        @click="router.push({ name: 'login' })"
-      >
-        Login
-      </button>
-    </div>
-
     <a
       v-if="authStore.UserInfo"
       class="flex-shrink-0 w-10 h-10 overflow-hidden rounded-full cursor-pointer hover:border-indigo-600 border-2 border-transparent transition-colors duration-300"

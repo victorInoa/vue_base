@@ -31,9 +31,9 @@ const id = 'input_select_' + props.name
   <select
     :id="id"
     :name="name"
-    :required = required
+    :required="required"
     :value="value"
-    class="border-slate-400 border-2 rounded-xl px-4 py-2"
+    class="border-gray-400 border-2 rounded-xl px-4 py-2"
   >
     <option value="">{{ placeholder }}</option>
     <option v-for="option in options" :key="option.value" :value="option.value">
