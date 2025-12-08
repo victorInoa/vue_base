@@ -20,7 +20,7 @@ import { Icon } from '@iconify/vue'
         Logout
       </button>
     </div>
-    <div v-else class="flex flex-col space-y-1 items-end">
+    <div v-else class="flex flex-col space-y-1 items-end dark:text-white">
       Usuario no autenticado
       <button
         class="text-indigo-700 hover:text-red-500 hover:cursor-pointer hover:underline"
@@ -43,7 +43,9 @@ import { Icon } from '@iconify/vue'
         width="45"
       />
     </a>
-    <Icon v-else height="45" icon="material-symbols-light:account-circle" width="45" />
+    <div v-else class="inline dark:text-white">
+      <Icon height="48" icon="material-symbols-light:account-circle" width="48" />
+    </div>
   </div>
 </template>
 
