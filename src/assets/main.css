@@ -18,7 +18,7 @@
 }
 body {
   /*@apply bg-gradient-to-br from-gray-100 from-20% via-90% via-gray-400 to-gray-400;*/
-  @apply bg-gray-100 dark:bg-gray-800;
+  @apply bg-gray-200 dark:bg-gray-800 h-full;
 }
 /*nav bar*/
 nav > .router-link-active, .router-link-active.router-link-exact-active {
