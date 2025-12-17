@@ -7,6 +7,10 @@
   --default-text-color: #7f7f7f;
   --color-one: #f9d226;
   --color-two: #e152aa;
+  --color-logo: #0000d5;
+  --color-primary-100: rgba(0, 0, 213, 0.1);
+  --color-primary-full: #0000d5;
+  --color-secondary: #e152aa;
 }
 @layer utilities {
   .font-accent {
@@ -17,13 +21,14 @@
   }
 }
 body {
+  background-color: #f3f3f4;
+  @apply dark:bg-gray-700 h-full;
   /*@apply bg-gradient-to-br from-gray-100 from-20% via-90% via-gray-400 to-gray-400;*/
-  @apply bg-gray-200 dark:bg-gray-800 h-full;
 }
 /*nav bar*/
 nav > .router-link-active, .router-link-active.router-link-exact-active {
   @apply text-two;
 }
 nav > .router-link-active {
-  @apply border-b-one border-b-2 top-2 pb-[calc(2rem+4px)] self-center relative;
+  @apply border-b-one border-b-2 top-2 pb-[calc(2rem+5px)] self-center relative;
 }

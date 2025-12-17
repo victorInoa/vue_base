@@ -8,14 +8,14 @@ import SbMenu from '@/components/interfase/SbMenu.vue'
 </script>
 
 <template>
-  <div class="h-screen w-screen bg-blue-50 flex flex-col items-stretch">
+  <div class="h-screen w-screen flex flex-col items-stretch">
     <!--    <HeaderMenu />-->
     <div class="h-[78px]"><HeaderMenu /></div>
     <div class="flex grow items-stretch justify-items-stretch">
       <div class="hidden sm:block">
         <SbMenu />
       </div>
-      <div class="grow bg-red-100">Body content</div>
+      <div class="grow">Body content</div>
     </div>
     <div class="h-[78px]">Footer</div>
   </div>

@@ -15,10 +15,10 @@ defineProps({
 <template>
   <a
     :class="[
-      isActive ? 'border-e-amber-300' : 'border-e-transparent',
+      isActive ? 'border-e-primary-full' : 'border-e-transparent',
       'px-4',
       'my-1',
-      'hover:border-e-amber-300',
+      'hover:border-e-primary-full',
       'border-r-4',
       'relative',
       'right-[-2px]',
@@ -30,11 +30,11 @@ defineProps({
   >
     <div
       :class="[
-        isActive ? 'bg-emerald-200' : '',
+        isActive ? 'bg-primary-100' : '',
         'p-3',
         'rounded-md',
         'overflow-x-hidden',
-        'group-hover:bg-emerald-200',
+        'group-hover:bg-primary-100',
         'transition-all',
         'duration-400',
       ]"

@@ -15,7 +15,7 @@ const __globals = globalsStore()
 <template>
   <header
     v-if="__globals.currentRoute && __globals.currentRoute?.name !== 'login'"
-    class="overflow-y-visible h-[78px] p-4 flex justify-between border-b-2 border-gray-200 w-full dark:border-slate-700"
+    class="overflow-y-visible h-[78px] p-4 flex justify-between border-b-2 border-gray-200 w-full dark:border-gray-600"
   >
     <div class="mx-auto flex justify-start font-bold w-full text-one">
       <RouterLink :to="{ name: 'home' }" class="hover:text-two mr-4 flex-1 md:flex-none"
