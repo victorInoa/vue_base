@@ -4,13 +4,38 @@
   --font-opens: 'Open Sans Variable', sans-serif;
   --font-poppins: 'Poppins Variable', sans-serif;
   --default-font-family: var(--font-poppins);
-  --default-text-color: #7f7f7f;
   --color-one: #f9d226;
   --color-two: #e152aa;
   --color-logo: #0000d5;
   --color-primary-100: rgba(0, 0, 213, 0.1);
   --color-primary-full: #0000d5;
-  --color-secondary: #e152aa;
+  /*--color-secondary: #e152aa;*/
+  /* 🎨 BASE COLORS */
+  --color-primary: rgb(249, 210, 38);
+  --color-secondary: rgb(225, 82, 170);
+  --color-accent: var(--color-secondary);
+  --color-hover: var(--color-secondary);
+
+  /* 🧱 UI COLORS */
+  --color-bg: rgb(248, 250, 252);
+  --color-surface: rgb(255, 255, 255);
+  --color-border: rgb(226, 232, 240);
+  --color-muted: rgb(241, 245, 249);
+
+  /* 📝 TEXT COLORS */
+  --color-text: rgb(15, 23, 42);
+  --color-text-muted: rgb(100, 116, 139);
+  --color-text-inverted: rgb(255, 255, 255);
+
+  /* 🚦 STATUS COLORS */
+  --color-success: rgb(22, 163, 74);
+  --color-warning: rgb(234, 179, 8);
+  --color-danger: rgb(220, 38, 38);
+  --color-info: rgb(14, 165, 233);
+
+
+  /*REPLACE DEFAULT TAILWIND COLORS*/
+  --default-text-color: red;
 }
 @layer utilities {
   .font-accent {
@@ -30,5 +55,5 @@ nav > .router-link-active, .router-link-active.router-link-exact-active {
   @apply text-two;
 }
 nav > .router-link-active {
-  @apply border-b-one border-b-2 top-2 pb-[calc(2rem+5px)] self-center relative;
+  @apply border-b-one border-b-2 top-4 pb-[calc(1rem)] self-center relative;
 }

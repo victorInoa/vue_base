@@ -10,14 +10,14 @@ import SbMenu from '@/components/interfase/SbMenu.vue'
 <template>
   <div class="h-screen w-screen flex flex-col items-stretch">
     <!--    <HeaderMenu />-->
-    <div class="h-[78px]"><HeaderMenu /></div>
+    <div><HeaderMenu /></div>
     <div class="flex grow items-stretch justify-items-stretch">
       <div class="hidden sm:block">
         <SbMenu />
       </div>
-      <div class="grow">Body content</div>
+      <div class="grow p-5 max-h-[calc(100vh-144px)] overflow-y-auto"><RouterView /></div>
     </div>
-    <div class="h-[78px]">Footer</div>
+    <div class="h-[72px]"><Footer /></div>
   </div>
   <!--  <HeaderMenu />-->
   <!--  <SbMenu></SbMenu>-->

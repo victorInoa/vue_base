@@ -21,7 +21,7 @@ onMounted(() => {
   >
     <svg
       v-if="!themeDarkMode.isDark"
-      class="h-6 w-6 text-primary-full"
+      class="h-6 w-6 text-secondary"
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"

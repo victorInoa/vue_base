@@ -71,6 +71,12 @@ const router = createRouter({
           component: () => import('@/views/examples/Form.vue'),
         },
         {
+          path: 'lists',
+          name: 'exampleLists',
+          meta: { title: 'Display lists examples' },
+          component: () => import('@/views/examples/Lists.vue'),
+        },
+        {
           path: 'emiter',
           name: 'exampleEmiter',
           meta: { title: 'Example of emit and listen usage' },
