@@ -17,10 +17,16 @@
   --color-hover: var(--color-secondary);
 
   /* 🧱 UI COLORS */
+  --color-body: var(--color-gray-100);
+  /*scrollbar*/
+  --color-scrollbar-thumb: var(--color-gray-400);
+  --color-scrollbar-track: var(--color-body);
+  /***/
   --color-bg: rgb(248, 250, 252);
   --color-surface: rgb(255, 255, 255);
   --color-border: rgb(226, 232, 240);
   --color-muted: rgb(241, 245, 249);
+  --color-table-bg: var(--color-white);
 
   /* 📝 TEXT COLORS */
   --color-text: rgb(15, 23, 42);
@@ -37,6 +43,16 @@
   /*REPLACE DEFAULT TAILWIND COLORS*/
   --default-text-color: red;
 }
+/*DARK MODE*/
+@layer base {
+  .dark {
+    /*--text-color: var(--color-white);*/
+    --color-body: var(--color-gray-700);
+    --color-table-bg: var(--color-gray-600);
+    --color-scrollbar-thumb: var(--color-secondary);
+    --color-scrollbar-track: var(--color-body);
+  }
+}
 @layer utilities {
   .font-accent {
     @apply font-[var(--font-opens)]
@@ -45,9 +61,18 @@
     @apply font-[var(--font-poppins)]
   }
 }
+html {
+  scroll-behavior: smooth;
+}
+.scrolled {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track) !important;
+}
+.scrolled::-webkit-scrollbar-track {background: var(--color-scrollbar-track) !important}
+.scrolled::-webkit-scrollbar-thumb {background-color: var(--color-scrollbar-thumb) !important}
 body {
-  background-color: #f3f3f4;
-  @apply dark:bg-gray-700 h-full;
+  background-color: var(--color-body);
+  @apply h-full;
   /*@apply bg-gradient-to-br from-gray-100 from-20% via-90% via-gray-400 to-gray-400;*/
 }
 /*nav bar*/

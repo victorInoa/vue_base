@@ -27,7 +27,7 @@ import { RouterLink } from 'vue-router'
       class="flex-shrink-0 w-10 h-10 overflow-hidden rounded-full cursor-pointer hover:border-indigo-600 border-2 border-transparent transition-colors duration-300"
       @click="router.push({ name: 'profile' })"
     >
-      <img alt="RagAndRoll" class="object-cover w-full h-full" src="/assets/profiles/vinoa.jpg" />
+      <img alt="profile" class="object-cover w-full h-full" src="/assets/profiles/vinoa.jpg" />
     </a>
     <div v-else class="inline dark:text-white">
       <Icon height="48" icon="material-symbols-light:account-circle" width="48" />
