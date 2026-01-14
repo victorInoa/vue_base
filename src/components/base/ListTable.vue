@@ -2,25 +2,26 @@
 import BadgeBase from '@/components/base/BadgeBase.vue'
 import { Icon } from '@iconify/vue'
 import ProfileInlistBase from '@/components/ProfileInlistBase.vue'
+import AnchorBase from '@/components/base/AnchorBase.vue'
 </script>
 
 <template>
   <div class="relative overflow-x-auto shadow-xs rounded-md">
-    <table class="w-full text-sm text-left rtl:text-right text-black font-bold bg-table-bg">
+    <table class="w-full text-sm text-black font-bold bg-table-bg">
       <thead class="border-b-8 border-body rounded-t-md">
         <tr>
-          <th class="px-6 py-3 font-md" scope="col">ID</th>
-          <th class="px-6 py-3 font-md text-center" scope="col">Profile</th>
-          <th class="px-6 py-3 font-md" scope="col">Name</th>
-          <th class="px-6 py-3 font-md text-center" scope="col">status</th>
-          <th class="px-6 py-3 font-md" scope="col">Action</th>
+          <th class="px-6 py-3 font-md table-column-stretch" scope="col">ID</th>
+          <th class="px-6 py-3 font-md text-center table-column-stretch" scope="col">Profile</th>
+          <th class="px-6 py-3 font-md text-left" scope="col">Name</th>
+          <th class="px-6 py-3 font-md text-center table-column-stretch" scope="col">status</th>
+          <th class="px-6 py-3 font-md text-left table-column-stretch" scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
         <tr class="odd:bg-gray-50 even:bg-blue-50 border-b-body border-b-8">
-          <td class="px-6 py-4 font-medium text-heading whitespace-nowrap" scope="row">33</td>
-          <td class="text-center">
-            <ProfileInlistBase />
+          <td class="px-6 py-4 font-medium text-heading" scope="row">33</td>
+          <td align="center">
+            <ProfileInlistBase profile="GOD" />
           </td>
           <td class="px-6 py-4">Juan de los palotes</td>
           <td class="px-6 py-4 text-center">
@@ -33,8 +34,8 @@ import ProfileInlistBase from '@/components/ProfileInlistBase.vue'
           </td>
         </tr>
         <tr class="odd:bg-gray-50 even:bg-blue-50 border-b-body border-b-8">
-          <td class="px-6 py-4 font-medium text-heading whitespace-nowrap" scope="row">33</td>
-          <td class="text-center">
+          <td class="px-6 py-4 font-medium text-heading" scope="row">33</td>
+          <td align="center">
             <ProfileInlistBase />
           </td>
           <td class="px-6 py-4">Juan de los palotes</td>
@@ -48,9 +49,9 @@ import ProfileInlistBase from '@/components/ProfileInlistBase.vue'
           </td>
         </tr>
         <tr class="odd:bg-gray-50 even:bg-blue-50 border-b-body border-b-8">
-          <td class="px-6 py-4 font-medium text-heading whitespace-nowrap" scope="row">33</td>
-          <td class="text-center">
-            <ProfileInlistBase />
+          <td class="px-6 py-4 font-medium text-heading" scope="row">33</td>
+          <td align="center">
+            <ProfileInlistBase profile="ADMIN" />
           </td>
           <td class="px-6 py-4">Juan de los palotes</td>
           <td class="px-6 py-4 text-center">
@@ -63,8 +64,8 @@ import ProfileInlistBase from '@/components/ProfileInlistBase.vue'
           </td>
         </tr>
         <tr class="odd:bg-gray-50 even:bg-blue-50 border-b-body border-b-8">
-          <td class="px-6 py-4 font-medium text-heading whitespace-nowrap" scope="row">33</td>
-          <td class="text-center">
+          <td class="px-6 py-4 font-medium text-heading" scope="row">33</td>
+          <td align="center">
             <ProfileInlistBase />
           </td>
           <td class="px-6 py-4">Juan de los palotes</td>
@@ -78,9 +79,9 @@ import ProfileInlistBase from '@/components/ProfileInlistBase.vue'
           </td>
         </tr>
         <tr class="odd:bg-gray-50 even:bg-blue-50 border-b-body">
-          <td class="px-6 py-4 font-medium text-heading whitespace-nowrap" scope="row">33</td>
+          <td class="px-6 py-4 font-medium text-heading" scope="row">33</td>
           <td align="center">
-            <ProfileInlistBase />
+            <ProfileInlistBase profile="LINK_DEMO_2" />
           </td>
           <td class="px-6 py-4">Juan de los palotes</td>
           <td class="px-6 py-4 text-center">
@@ -89,28 +90,14 @@ import ProfileInlistBase from '@/components/ProfileInlistBase.vue'
             >
           </td>
           <td class="px-6 py-4">
-            <a class="font-medium text-fg-brand hover:underline" href="#">Edit</a>
+            <AnchorBase href="#" variant="success"
+              ><Icon height="14" icon="mdi:edit" width="14" />Edit</AnchorBase
+            >
           </td>
         </tr>
       </tbody>
     </table>
   </div>
-
-  <table class="table-auto">
-    <thead></thead>
-    <tbody>
-      <tr>
-        <td>33</td>
-        <td>Nombre</td>
-      </tr>
-    </tbody>
-    <tfoot>
-      <tr>
-        <td>fID</td>
-        <td>fName</td>
-      </tr>
-    </tfoot>
-  </table>
 </template>
 
 <style scoped></style>

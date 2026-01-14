@@ -19,7 +19,7 @@ const themeDarkMode = darkModeStore()
       <img v-else alt="Logo" class="size-[20px] relative" src="@/assets/logo-icon.svg" />
     </RouterLink>
 
-    <h2>Footer de la página</h2>
+    <strong>Footer de la página</strong>
   </div>
 </template>
 

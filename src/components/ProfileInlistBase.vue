@@ -1,4 +1,6 @@
 <script setup>
+import { globalsStore } from '@/stores/globals.js'
+const profilesTypes = globalsStore().profilesTypes[0]
 const props = defineProps({
   alt: {
     type: String,
@@ -7,14 +9,23 @@ const props = defineProps({
     type: String,
     default: '/assets/profiles/vinoa.jpg',
   },
+  profile: {
+    type: String,
+    default: 'LINK',
+  },
 })
+
+const profileBorderColor = profilesTypes[props.profile]?.accent ?? '#E0FA25FF'
 
 const alt = props.alt || 'profile'
 </script>
 
 <template>
-  <div class="rounded-full border-2 border-red-500 overflow-hidden h-6 w-6">
-    <img :alt="alt" :src="src" height="24" width="24" />
+  <div
+    :style="{ borderColor: profileBorderColor }"
+    class="border-2 rounded-full object-cover overflow-hidden h-9 w-9 p-0.5"
+  >
+    <img :alt="alt" :src="src" class="rounded-full" height="40" width="40" />
   </div>
 </template>
 

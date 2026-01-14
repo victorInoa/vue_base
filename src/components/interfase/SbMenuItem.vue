@@ -40,10 +40,10 @@ defineProps({
       ]"
     >
       <div class="flex">
-        <div class="mr-0 md:mr-4">
+        <div class="mr-0 md:mr-2">
           <Icon :icon="icon" height="20" width="20" />
         </div>
-        <div class="grown font-bold text-black hidden md:block">DashBoard</div>
+        <div class="grown font-bold text-black hidden md:block text-nowrap"><slot /></div>
       </div>
     </div>
   </a>

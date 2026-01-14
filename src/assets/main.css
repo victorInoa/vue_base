@@ -28,6 +28,21 @@
   --color-muted: rgb(241, 245, 249);
   --color-table-bg: var(--color-white);
 
+  /*forms*/
+  --color-form-input-border: var(--color-gray-400);
+  --color-form-input-bg: var(--color-gray-100);
+  --color-form-input-text: var(--color-gray-900);
+  /*tables*/
+  --color-table-header-bg: var(--color-gray-100);
+  --color-table-header-text: var(--color-gray-900);
+  --color-table-header-border: var(--color-gray-400);
+  --color-table-row-bg-even: var(--color-gray-100);
+  --color-table-row-text-even: var(--color-gray-900);
+  --color-table-row-border-even: var(--color-gray-400);
+  --color-table-row-bg-odd: var(--color-gray-100);
+  --color-table-row-text-odd: var(--color-gray-900);
+  --color-table-row-border-odd: var(--color-gray-400);
+  --table-radius: 1rem;
   /* 📝 TEXT COLORS */
   --color-text: rgb(15, 23, 42);
   --color-text-muted: rgb(100, 116, 139);
@@ -81,4 +96,13 @@ nav > .router-link-active, .router-link-active.router-link-exact-active {
 }
 nav > .router-link-active {
   @apply border-b-one border-b-2 top-4 pb-[calc(1rem)] self-center relative;
+}
+.table-column-stretch {
+  @apply whitespace-nowrap w-1;
+}
+h2 {
+  @apply text-2xl;
+}
+h3 {
+  @apply text-xl;
 }
