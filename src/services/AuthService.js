@@ -4,7 +4,7 @@ import { alertBase } from '@/composables/SweetAlerts.js'
 import { useAuthStore } from '@/stores/auth.js'
 import router from '@/router/index.js'
 
-class{
+class AuthService{
   constructor(){
     this.token = ref(null);
     this.return = null;

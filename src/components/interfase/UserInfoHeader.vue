@@ -9,17 +9,32 @@ import { RouterLink } from 'vue-router'
 <template>
   <div class="items-center space-x-4 flex group/menu-user relative">
     <div
-      class="flex-col items-center space-x-4 group-hover/menu-user:block hidden absolute top-11 right-0 z-999"
+      class="flex-col items-center space-x-4 group-hover/menu-user:block hidden absolute top-8 right-[-20px] z-999"
     >
-      <ul class="border border-slate-400 bg-white p-5 shadow-2xl rounded-lg z-9999">
+      <ul
+        v-if="authStore.UserInfo"
+        class="border border-slate-400 bg-white p-5 shadow-2xl rounded-lg z-9999"
+      >
         <li class="pb-4 border-slate-200 border-b-1">
-          <routerLink :to="{ name: 'contentNews' }" class="hover:text-red-500">Noticias</routerLink>
-        </li>
-        <li class="pt-4">
-          <routerLink :to="{ name: 'contentOpinions' }" class="hover:text-red-500"
-            >Opiniones</routerLink
+          <routerLink :to="{ name: 'contentNews' }" class="hover:text-red-500"
+            >Configuraciones</routerLink
           >
         </li>
+        <li class="pt-4">
+          <a
+            class="hover:text-red-500 hover:cursor-pointer"
+            @click="(authStore.clearUserInfo(), router.push({ name: 'login' }))"
+            >Log Out</a
+          >
+        </li>
+      </ul>
+      <ul v-else class="border border-slate-400 bg-white p-5 shadow-2xl rounded-lg z-9999">
+        <li class="pb-4 border-slate-200 border-b-1">
+          <routerLink :to="{ name: 'login' }" class="hover:text-red-500">Iniciar Sesión</routerLink>
+        </li>
+        <!--        <li class="pt-4">-->
+        <!--          <routerLink :to="{ name: 'register' }" class="hover:text-red-500">Registrarse</routerLink>-->
+        <!--        </li>-->
       </ul>
     </div>
     <a

@@ -4,12 +4,27 @@ import ProfileInlistBase from '@/components/ProfileInlistBase.vue'
 import axios from 'axios'
 import { onMounted, ref } from 'vue'
 import { Icon } from '@iconify/vue'
+import { alertBase } from '@/composables/SweetAlerts.js'
 
+const hasError = ref(false)
 const listOfUsers = ref([])
 
 async function getUsers() {
-  const response = await axios.get('?require=users')
-  listOfUsers.value = response.data
+  try {
+    const response = await axios.get('?require=users')
+    if (response.statusText !== 'OK') {
+      throw new Error(response.statusText)
+    }
+    listOfUsers.value = response.data
+  } catch (error) {
+    await alertBase(
+      '<strong>No se pudo hacer la conexión</strong> <br>\n La plataforma no encuentra el servidor<br> <span class="text-orange-400 font-bold">Favor contactar la administración</span>',
+      'error',
+      'Error',
+    )
+    hasError.value = true
+    console.error('Error al hacerlo: ' + error.message)
+  }
 }
 
 onMounted(() => {
@@ -29,7 +44,10 @@ onMounted(() => {
     />
   </div>
   <div v-else>
-    <p><Icon height="24" icon="line-md:downloading-loop" width="24" /></p>
+    <p v-if="hasError" class="text-red-500">
+      <Icon height="32" icon="streamline-pixel:internet-network-cloud-error" width="32" />
+    </p>
+    <p v-else><Icon height="24" icon="line-md:downloading-loop" width="24" /></p>
   </div>
 </template>
 
