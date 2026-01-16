@@ -20,9 +20,6 @@ defineProps({
       variant === 'warning' && 'text-orange-400 border-transparent',
       variant === 'alert' && 'text-danger/80 border-transparent',
       variant === 'outline' && ' text-gray-500 border-gray-500',
-
-      //variant === 'blue' && 'text-blue-600 hover:text-blue-400',
-      //variant === 'green' && 'text-green-600 hover:text-green-400',
     ]"
     :href="href"
     ><slot></slot

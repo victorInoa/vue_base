@@ -42,8 +42,12 @@ try {
   );
   die();
 }
+$input = json_decode(file_get_contents('php://input'), true);
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && $_GET['require'] === 'users') {
+  require_once 'list_of_users.php';
+  die();
+}
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $input = json_decode(file_get_contents('php://input'), true);
   if (json_last_error() === JSON_ERROR_NONE) {
     $_POST = array_merge($_POST, $input);
   }

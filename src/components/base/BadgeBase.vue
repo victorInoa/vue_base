@@ -32,7 +32,7 @@ const customClass = 'badge_' + props.variant + '_' + props.size
       variant === 'success' && 'bg-green-100 text-green-500 border-transparent',
       variant === 'info' && 'bg-blue-200 text-blue-800 border-transparent',
       variant === 'warning' && 'bg-orange-100 text-orange-400 border-transparent',
-      variant === 'alert' && 'bg-danger/10 text-danger/80 border-transparent',
+      variant === 'alert' && 'bg-red-100 text-danger/80 border-transparent',
       variant === 'outline' && 'bg-transparent text-gray-500 border-gray-500',
       variant === 'gradient' &&
         'bg-linear-to-br from-blue-500 via-purple-500 to-pink-500 border-purple-800 text-white transition duration-700 ease-in-out' +

@@ -23,9 +23,13 @@ const alt = props.alt || 'profile'
 <template>
   <div
     :style="{ borderColor: profileBorderColor }"
-    class="border-2 rounded-full object-cover overflow-hidden h-9 w-9 p-0.5"
+    class="border-2 rounded-full overflow-hidden p-0.5 size-[50px] box-border bg-white"
   >
-    <img :alt="alt" :src="src" class="rounded-full" height="40" width="40" />
+    <img
+      :alt="alt"
+      :src="src"
+      class="object-cover rounded-full overflow-hidden w-100 h-100 box-border max-w-[42px] max-h-[42px]"
+    />
   </div>
 </template>
 

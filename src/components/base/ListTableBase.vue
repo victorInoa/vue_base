@@ -7,7 +7,7 @@ import AnchorBase from '@/components/base/AnchorBase.vue'
 
 <template>
   <div class="relative overflow-x-auto shadow-xs rounded-md">
-    <table class="w-full text-sm text-black font-bold bg-table-bg">
+    <table class="w-full text-sm text-black font-bold bg-table-bg dark:text-gray-400">
       <thead class="border-b-8 border-body rounded-t-md">
         <tr>
           <th class="px-6 py-3 font-md table-column-stretch" scope="col">ID</th>
@@ -18,12 +18,14 @@ import AnchorBase from '@/components/base/AnchorBase.vue'
         </tr>
       </thead>
       <tbody>
-        <tr class="odd:bg-gray-50 even:bg-blue-50 border-b-body border-b-8">
-          <td class="px-6 py-4 font-medium text-heading" scope="row">33</td>
+        <tr
+          class="odd:bg-gray-50 even:bg-blue-50 border-b-body border-b-8 dark:odd:bg-white/10 dark:even:bg-white/10"
+        >
+          <td class="px-6 py-4 font-medium text-heading">33</td>
           <td align="center">
             <ProfileInlistBase profile="GOD" />
           </td>
-          <td class="px-6 py-4">Juan de los palotes</td>
+          <td class="px-6 py-4 dark:text-white">Juan de los palotes</td>
           <td class="px-6 py-4 text-center">
             <BadgeBase id="badge_33" size="sm"
               ><Icon height="24" icon="ci:check-big" width="24" /> Started</BadgeBase
@@ -33,8 +35,10 @@ import AnchorBase from '@/components/base/AnchorBase.vue'
             <a class="font-medium text-fg-brand hover:underline" href="#">Edit</a>
           </td>
         </tr>
-        <tr class="odd:bg-gray-50 even:bg-blue-50 border-b-body border-b-8">
-          <td class="px-6 py-4 font-medium text-heading" scope="row">33</td>
+        <tr
+          class="odd:bg-gray-50 even:bg-blue-50 border-b-body border-b-8 dark:odd:bg-white/10 dark:even:bg-white/10"
+        >
+          <td class="px-6 py-4 font-medium text-heading">33</td>
           <td align="center">
             <ProfileInlistBase />
           </td>
@@ -48,8 +52,10 @@ import AnchorBase from '@/components/base/AnchorBase.vue'
             <a class="font-medium text-fg-brand hover:underline" href="#">Edit</a>
           </td>
         </tr>
-        <tr class="odd:bg-gray-50 even:bg-blue-50 border-b-body border-b-8">
-          <td class="px-6 py-4 font-medium text-heading" scope="row">33</td>
+        <tr
+          class="odd:bg-gray-50 even:bg-blue-50 border-b-body border-b-8 dark:odd:bg-white/10 dark:even:bg-white/10"
+        >
+          <td class="px-6 py-4 font-medium text-heading">33</td>
           <td align="center">
             <ProfileInlistBase profile="ADMIN" />
           </td>
@@ -63,8 +69,10 @@ import AnchorBase from '@/components/base/AnchorBase.vue'
             <a class="font-medium text-fg-brand hover:underline" href="#">Edit</a>
           </td>
         </tr>
-        <tr class="odd:bg-gray-50 even:bg-blue-50 border-b-body border-b-8">
-          <td class="px-6 py-4 font-medium text-heading" scope="row">33</td>
+        <tr
+          class="odd:bg-gray-50 even:bg-blue-50 border-b-body border-b-8 dark:odd:bg-white/10 dark:even:bg-white/10"
+        >
+          <td class="px-6 py-4 font-medium text-heading">33</td>
           <td align="center">
             <ProfileInlistBase />
           </td>
@@ -78,8 +86,10 @@ import AnchorBase from '@/components/base/AnchorBase.vue'
             <a class="font-medium text-fg-brand hover:underline" href="#">Edit</a>
           </td>
         </tr>
-        <tr class="odd:bg-gray-50 even:bg-blue-50 border-b-body">
-          <td class="px-6 py-4 font-medium text-heading" scope="row">33</td>
+        <tr
+          class="odd:bg-gray-50 even:bg-blue-50 border-b-body dark:odd:bg-white/10 dark:even:bg-white/10"
+        >
+          <td class="px-6 py-4 font-medium text-heading">33</td>
           <td align="center">
             <ProfileInlistBase profile="LINK_DEMO_2" />
           </td>
@@ -90,7 +100,7 @@ import AnchorBase from '@/components/base/AnchorBase.vue'
             >
           </td>
           <td class="px-6 py-4">
-            <AnchorBase href="#" variant="success"
+            <AnchorBase href="#" variant="info"
               ><Icon height="14" icon="mdi:edit" width="14" />Edit</AnchorBase
             >
           </td>
