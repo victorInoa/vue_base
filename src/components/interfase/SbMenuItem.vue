@@ -27,6 +27,7 @@ defineProps({
       'duration-400',
     ]"
     href="#"
+    @click="$emit('click')"
   >
     <div
       :class="[

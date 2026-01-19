@@ -7,7 +7,7 @@ import InputPasswordBase from '@/components/base/forms/InputPasswordBase.vue'
 
 import { darkModeStore } from '@/stores/darkMode.js'
 
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import axios from 'axios'
 import { alertBase } from '@/composables/SweetAlerts.js'
 import { useAuthStore } from '@/stores/auth.js'
@@ -81,6 +81,11 @@ async function login(formData) {
     console.error('Error al hacerlo: ' + error.message)
   }
 }
+
+// Add this to ensure dark mode is checked when the component mounts
+onMounted(() => {
+  themeDarkMode.checkDarkMode()
+})
 </script>
 
 <template>

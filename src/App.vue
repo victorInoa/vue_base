@@ -5,6 +5,12 @@ import HeaderMenu from '@/components/interfase/HeaderMenu.vue'
 //import Main from '@/components/interfase/Main.vue'
 import Footer from '@/components/interfase/Footer.vue'
 import SbMenu from '@/components/interfase/SbMenu.vue'
+import router from '@/router/index.js'
+import { ref } from 'vue'
+const activeMenu = ref('home')
+const handleMenusClick = (routeName) => {
+  router.push({ name: routeName })
+}
 </script>
 
 <template>

@@ -30,7 +30,7 @@ export const darkModeStore = defineStore('dark_mode', () => {
       localStorage.setItem(STORAGE_KEY, 'dark')
     } else {
       localStorage.setItem(STORAGE_KEY, 'light')
-      localStorage.dark_mode = ''
+      //localStorage.dark_mode = ''
     }
     checkDarkMode()
   }

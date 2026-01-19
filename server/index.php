@@ -37,83 +37,14 @@ try {
   $dotenv->required($requiredEnvVariables);
 } catch (Dotenv\Exception\ValidationException) {
   http_response_code(500);
-  echo(
-    'Verifica que tengas definidas las siguientes variables de entorno:' . print_r($requiredEnvVariables, true)
-  );
+  echo 'Verífica que tengas definidas las siguientes variables de entorno:' . print_r($requiredEnvVariables, true);
   die();
 }
 $input = json_decode(file_get_contents('php://input'), true);
-if ($_SERVER['REQUEST_METHOD'] === 'GET' && $_GET['require'] === 'users') {
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['require']) && $_GET['require'] === 'users') {
   require_once 'list_of_users.php';
-  die();
+} elseif ($_SERVER['REQUEST_METHOD'] === 'POST' && json_last_error() === JSON_ERROR_NONE) {
+  require_once 'auth.php';
+} else {
+  require_once 'default.php';
 }
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  if (json_last_error() === JSON_ERROR_NONE) {
-    $_POST = array_merge($_POST, $input);
-  }
-  if ($_POST["action"] === 'login') {
-    $userEmail = $_POST["user_email"];
-    $password  = $_POST["password"];
-    if ($userEmail === '' || $password === '') {
-      echo json_encode(
-        [
-          'status'  => 'error',
-          'message' => 'No puede haber campos vacíos',
-          'data'    => [
-            'userEmail' => $userEmail,
-            'password'  => $password,
-          ],
-        ],
-        JSON_THROW_ON_ERROR
-      );
-    } else {
-      if ($userEmail === 'victorinoa16@gmail.com' && $password === 'password') {
-        echo json_encode(
-          [
-            'status'  => 'ok',
-            'message' => 'Tienes todo el acceso :D',
-            'data'    => [
-              'id'       => '0065ttt-394f-7fae-b686-add985b9cd1a',
-              'email'    => $userEmail,
-              'role'     => 'any',
-              'fullName' => 'Juan de los Palotes',
-            ],
-          ],
-          JSON_THROW_ON_ERROR
-        );
-      } else {
-        echo json_encode(
-          [
-            'status'  => 'warning',
-            'message' => 'Debes pasar las credenciales correctas',
-            'data'    => [
-              'userEmail' => $userEmail,
-              'password'  => $password,
-            ],
-          ],
-          JSON_THROW_ON_ERROR
-        );
-      }
-    }
-    die();
-  }
-}
-echo json_encode(
-  [
-    'status' => 'ok',
-    'data'   => [
-      'reports' => [
-        0 => [
-          'acronym' => 'ACR',
-          'name'    => 'Report Name',
-        ],
-        1 => [
-          'acronym' => 'DN',
-          'name'    => 'Distrito Nacional',
-        ],
-      ],
-      'env'     => $_ENV['VITE_SERVER_ROOT_URL'],
-      'message' => 'Hello World',
-    ],
-  ]
-);

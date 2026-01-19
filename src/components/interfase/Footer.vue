@@ -7,7 +7,7 @@ const themeDarkMode = darkModeStore()
 
 <template>
   <div
-    class="mx-auto w-full p-5 text-gray-600 border-t-2 border-t-gray-200 dark:border-gray-600 flex justify-start"
+    class="mx-auto w-full p-5 text-gray-600 dark:text-gray-400 border-t-2 border-t-gray-200 dark:border-gray-600 flex justify-start"
   >
     <RouterLink :to="{ name: 'home' }" class="hover:text-secondary mr-4 size-[20px]">
       <img
