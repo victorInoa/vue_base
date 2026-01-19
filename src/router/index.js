@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '@/views/HomeView.vue'
 
 import { globalsStore } from '@/stores/globals.js'
 
@@ -11,8 +10,8 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      meta: { title: 'Home' },
-      component: HomeView,
+      meta: { title: 'Home of the platform' },
+      component: import('@/views/HomeView.vue'),
     },
     {
       path: '/content',
@@ -45,6 +44,18 @@ const router = createRouter({
       name: 'reports',
       meta: { title: 'Reports' },
       component: () => import('@/views/ReportsView.vue'),
+    },
+    {
+      path: '/users',
+      name: 'users',
+      meta: { title: 'Users' },
+      component: () => import('@/views/UsersView.vue'),
+    },
+    {
+      path: '/configs',
+      name: 'configs',
+      meta: { title: 'Configuraciones' },
+      component: () => import('@/views/ConfigsView.vue'),
     },
     {
       path: '/evidences',
@@ -102,11 +113,15 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   const globals = globalsStore()
   document.title = to.meta.title.toString() + ' | Vue Base' || 'Vue Base'
+
   //---------------------------------------------------------------------------------------
   //todo: hasta ahora encuentro esta la formas limpia de exponer la ruta actual y la ruta anterior
   globals.setCurrentRoute(to)
   globals.setBeforeRoute(from)
   //----------------------------------------------------------------------------------
+
+  console.log(to.name === 'login')
+
   next()
 })
 export default router

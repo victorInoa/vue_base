@@ -16,7 +16,7 @@ import { RouterLink } from 'vue-router'
         class="border border-slate-400 bg-white p-5 shadow-2xl rounded-lg z-9999"
       >
         <li class="pb-4 border-slate-200 border-b-1">
-          <routerLink :to="{ name: 'contentNews' }" class="hover:text-red-500"
+          <routerLink :to="{ name: 'configs' }" class="hover:text-red-500"
             >Configuraciones</routerLink
           >
         </li>

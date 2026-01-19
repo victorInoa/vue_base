@@ -22,10 +22,12 @@ if ($_POST["action"] === 'login') {
           'status'  => 'ok',
           'message' => 'Tienes todo el acceso :D',
           'data'    => [
-            'id'       => '0065ttt-394f-7fae-b686-add985b9cd1a',
-            'email'    => $userEmail,
-            'role'     => 'any',
-            'fullName' => 'Juan de los Palotes',
+            'id'         => '0065ttt-394f-7fae-b686-add985b9cd1a',
+            'email'      => $userEmail,
+            'role'       => 'any',
+            'fullName'   => 'Juan de los Palotes',
+            'token'      => 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRpdGxlIiwiaWF0IjoxNjI4MjAzMjE5LCJleHAiOjE2OTQzMjQ2NzYsImF1ZCI6InRpdGxlIiwiaXNzIjoiYXBpIn0.V34Qh_8Q4QN1QFV8QeQKZqn2YnFh-Kb8P4ZX-P9_jQg',
+            'token_type' => 'Bearer',
           ],
         ],
         JSON_THROW_ON_ERROR
@@ -44,5 +46,4 @@ if ($_POST["action"] === 'login') {
       );
     }
   }
-  die();
 }

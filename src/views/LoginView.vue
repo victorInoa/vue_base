@@ -12,18 +12,24 @@ import axios from 'axios'
 import { alertBase } from '@/composables/SweetAlerts.js'
 import { useAuthStore } from '@/stores/auth.js'
 import router from '@/router/index.js'
-
+import AuthService from '@/services/AuthService.js'
 const sendingLoginForm = ref(false)
 
 const themeDarkMode = darkModeStore()
 
+const Auth = new AuthService()
+
 const handleSubmit = () => {
-  console.log('----submitting')
   const formData = new FormData(event.target)
+  console.log('----submitting')
+
+  Auth.login(formData.get('user_email'), formData.get('password'))
+
+  //const formData = new FormData(event.target)
   //console.log(formData)
-  console.log(formData.get('user_email'))
-  console.log(formData.get('password'))
-  login(formData)
+  //console.log(formData.get('user_email'))
+  //console.log(formData.get('password'))
+  //login(formData)
 }
 
 async function login(formData) {

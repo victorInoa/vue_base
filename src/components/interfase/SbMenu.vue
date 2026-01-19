@@ -18,27 +18,24 @@ const __globals = globalsStore()
     </RouterLink>
     <RouterLink v-slot="{ navigate, isActive }" :to="{ name: 'evidences' }" custom>
       <SbMenuItem :isActive="isActive" icon="icon-park-outline:list" @click="navigate"
-        >Evidecias</SbMenuItem
+        >Evidencias</SbMenuItem
       >
     </RouterLink>
 
-    <SbMenuItem
-      :isActive="activeItem === 'users'"
-      icon="la:users"
-      @click="(router.push({ name: 'users' }), setActive('users'))"
-      >Usuarios</SbMenuItem
-    >
+    <RouterLink v-slot="{ navigate, isActive }" :to="{ name: 'users' }" custom>
+      <SbMenuItem :isActive="isActive" icon="la:users" @click="navigate">Usuarios</SbMenuItem>
+    </RouterLink>
+
     <RouterLink v-slot="{ navigate, isActive }" :to="{ name: 'exampleLists' }" custom>
       <SbMenuItem :isActive="isActive" icon="icon-park-outline:list" @click="navigate"
-        >Ejemplo de listas</SbMenuItem
+        >Ejemplo de lista</SbMenuItem
       >
     </RouterLink>
-    <SbMenuItem
-      :isActive="activeItem === 'configs'"
-      icon="hugeicons:dashboard-square-setting"
-      @click="(router.push({ name: 'configs' }), setActive('configs'))"
-      >Configuraciones</SbMenuItem
-    >
+    <RouterLink v-slot="{ navigate, isActive }" :to="{ name: 'configs' }" custom>
+      <SbMenuItem :isActive="isActive" icon="hugeicons:dashboard-square-setting" @click="navigate"
+        >Configuraciones</SbMenuItem
+      >
+    </RouterLink>
   </div>
 </template>
 
