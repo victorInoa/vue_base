@@ -1,4 +1,7 @@
 <?php
+
+use Valorin\Random\Random;
+
 $_POST = array_merge($_POST, $input);
 if ($_POST["action"] === 'login') {
   $userEmail = $_POST["user_email"];
@@ -17,18 +20,20 @@ if ($_POST["action"] === 'login') {
     );
   } else {
     if ($userEmail === 'victorinoa16@gmail.com' && $password === 'password') {
+      $generatedToken = Random::token(32);
       echo json_encode(
         [
-          'status'  => 'ok',
-          'message' => 'Tienes todo el acceso :D',
-          'data'    => [
-            'id'         => '0065ttt-394f-7fae-b686-add985b9cd1a',
-            'email'      => $userEmail,
-            'role'       => 'any',
-            'fullName'   => 'Juan de los Palotes',
-            'token'      => 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRpdGxlIiwiaWF0IjoxNjI4MjAzMjE5LCJleHAiOjE2OTQzMjQ2NzYsImF1ZCI6InRpdGxlIiwiaXNzIjoiYXBpIn0.V34Qh_8Q4QN1QFV8QeQKZqn2YnFh-Kb8P4ZX-P9_jQg',
-            'token_type' => 'Bearer',
+          'status'     => 'ok',
+          'message'    => 'Tienes todo el acceso :D',
+          'data'       => [
+            'id'       => '0065ttt-394f-7fae-b686-add985b9cd1a',
+            'email'    => $userEmail,
+            'role'     => 'LINK',
+            'fullName' => 'Juan de los Palotes',
+            'photo'    => 'https://observatorio.82-165-212-149.plesk.page/content/users-profiles/wp2831865-1080p-gaming-wallpapers.jpg',
           ],
+          'token'      => $generatedToken,
+          'token_type' => 'Bearer',
         ],
         JSON_THROW_ON_ERROR
       );

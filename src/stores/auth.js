@@ -9,16 +9,20 @@ export const useAuthStore = defineStore('auth', () => {
   const UserInfo = ref(storedUser ? JSON.parse(storedUser) : null)
 
   // Watch for changes to UserInfo and save to localStorage
-  watch(UserInfo, (newValue) => {
-    if (newValue) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(newValue))
-    } else {
-      localStorage.removeItem(STORAGE_KEY)
-    }
-  }, { deep: true })
+  watch(
+    UserInfo,
+    (newValue) => {
+      if (newValue) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(newValue))
+      } else {
+        localStorage.removeItem(STORAGE_KEY)
+      }
+    },
+    { deep: true },
+  )
 
-  function setUserInfo(id, email, role, fullName) {
-    UserInfo.value = { id, email, role, fullName }
+  function setUserInfo(id, email, role, fullName, photo, token) {
+    UserInfo.value = { id, email, role, fullName, photo, token }
   }
 
   // Add a clear function to log out

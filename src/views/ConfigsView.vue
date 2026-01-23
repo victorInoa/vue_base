@@ -1,13 +1,13 @@
 <script setup>
 import SectionTitle from '@/components/SectionTitle.vue'
 import { onMounted } from 'vue'
-import { useAuthStore } from '@/stores/auth.js'
+//import { useAuthStore } from '@/stores/auth.js'
 
 onMounted(() => {
   console.log('Configuraciones montada')
-  const authStore = useAuthStore()
+  //const authStore = useAuthStore()
 
-  console.log(authStore.UserInfo)
+  //console.log(authStore.UserInfo)
 })
 </script>
 

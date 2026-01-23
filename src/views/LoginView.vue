@@ -8,9 +8,7 @@ import InputPasswordBase from '@/components/base/forms/InputPasswordBase.vue'
 import { darkModeStore } from '@/stores/darkMode.js'
 
 import { onMounted, ref } from 'vue'
-import axios from 'axios'
 import { alertBase } from '@/composables/SweetAlerts.js'
-import { useAuthStore } from '@/stores/auth.js'
 import router from '@/router/index.js'
 import AuthService from '@/services/AuthService.js'
 const sendingLoginForm = ref(false)
@@ -19,76 +17,25 @@ const themeDarkMode = darkModeStore()
 
 const Auth = new AuthService()
 
-const handleSubmit = () => {
+async function handleSubmit() {
   const formData = new FormData(event.target)
   console.log('----submitting')
-
-  Auth.login(formData.get('user_email'), formData.get('password'))
-
-  //const formData = new FormData(event.target)
-  //console.log(formData)
-  //console.log(formData.get('user_email'))
-  //console.log(formData.get('password'))
-  //login(formData)
-}
-
-async function login(formData) {
+  sendingLoginForm.value = true
   try {
-    sendingLoginForm.value = true
-    const response = await axios.post('', {
-      user_email: formData.get('user_email'),
-      password: formData.get('password'),
-      action: 'login',
+    await Auth.login(formData.get('user_email'), formData.get('password')).then(() => {
+      router.push({ name: 'dashboard' })
+      sendingLoginForm.value = false
     })
-
-    if (response.statusText !== 'OK') {
-      throw new Error('Error al hacer login')
-    }
-
-    if (response.data.status === 'error') {
-      await alertBase(response.data.message, 'error', 'Error', 'Footer')
-    }
-    if (response.data.status === 'warning') {
-      await alertBase(
-        response.data.message +
-          '\n Datos pasados: <strong>Email:</strong> ' +
-          response.data.data.userEmail +
-          ' <strong>Password:</strong> ' +
-          response.data.data.password,
-        'warning',
-        'Advertencia',
-        '<strong>Email:</strong> victorinoa16@gmail.com, <strong>Password:</strong> password',
-      )
-    }
-    if (response.data.status === 'ok') {
-      await alertBase(response.data.message, 'success', 'Exito', 'Footer').then(() => {
-        const authStore = useAuthStore()
-        authStore.setUserInfo(
-          response.data.data.id,
-          response.data.data.email,
-          response.data.data.role,
-          response.data.data.fullName,
-        )
-
-        console.log(authStore.UserInfo)
-
-        router.push({ name: 'dashboard' })
-      })
-    }
-
-    sendingLoginForm.value = false
-  } catch (error) {
+  } catch (Error) {
     await alertBase(
       '<strong>No se pudo hacer la conexión</strong> <br>\n La plataforma no encuentra el servidor<br> <span class="text-orange-400 font-bold">Favor contactar la administración</span>',
       'error',
       'Error',
     )
     sendingLoginForm.value = false
-    console.error('Error al hacerlo: ' + error.message)
+    console.error('Error al hacerlo: ' + Error.message)
   }
 }
-
-// Add this to ensure dark mode is checked when the component mounts
 onMounted(() => {
   themeDarkMode.checkDarkMode()
 })
@@ -114,7 +61,46 @@ onMounted(() => {
       <template #footer>
         <ButtonBase :disabled="sendingLoginForm" type="submit" variant="gradient">
           <template v-if="sendingLoginForm">
-            <Icon class="mr-2 inline" icon="svg-spinners:pulse-2" /> Entrando a la plataforma
+            <div class="mr-2 inline">
+              <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                <g
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="4"
+                >
+                  <path d="M12 3c4.97 0 9 4.03 9 9" stroke-dasharray="18">
+                    <animate
+                      attributeName="stroke-dashoffset"
+                      dur="0.3s"
+                      fill="freeze"
+                      values="18;0"
+                    />
+                    <animateTransform
+                      attributeName="transform"
+                      dur="1.5s"
+                      repeatCount="indefinite"
+                      type="rotate"
+                      values="0 12 12;360 12 12"
+                    />
+                  </path>
+                  <path
+                    d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+                    opacity="0.3"
+                    stroke-dasharray="60"
+                  >
+                    <animate
+                      attributeName="stroke-dashoffset"
+                      dur="1.2s"
+                      fill="freeze"
+                      values="60;0"
+                    />
+                  </path>
+                </g>
+              </svg>
+            </div>
+            Entrando a la plataforma
           </template>
           <template v-else>
             <Icon class="mr-2 inline" icon="mdi:account-key" />

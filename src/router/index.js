@@ -17,7 +17,7 @@ const router = createRouter({
       path: '/content',
       redirect: '/content/news',
       name: 'content',
-      meta: { title: 'Contenido' },
+      meta: { title: 'Contenido', requireAuth: true },
       children: [
         {
           path: 'news',
@@ -28,7 +28,7 @@ const router = createRouter({
         {
           path: 'opinions',
           name: 'contentOpinions',
-          meta: { title: 'Opiniones' },
+          meta: { title: 'Opiniones', requireAuth: true },
           component: () => import('@/views/EvidencesView.vue'),
         },
         {
@@ -42,38 +42,47 @@ const router = createRouter({
     {
       path: '/reports',
       name: 'reports',
-      meta: { title: 'Reports' },
+      meta: { title: 'Reports', requireAuth: true },
       component: () => import('@/views/ReportsView.vue'),
     },
     {
       path: '/users',
       name: 'users',
-      meta: { title: 'Users' },
+      meta: {
+        title: 'Users',
+        requireAuth: true,
+      },
       component: () => import('@/views/UsersView.vue'),
     },
     {
       path: '/configs',
       name: 'configs',
-      meta: { title: 'Configuraciones' },
+      meta: {
+        title: 'Configuraciones',
+        requireAuth: true,
+      },
       component: () => import('@/views/ConfigsView.vue'),
     },
     {
       path: '/evidences',
       name: 'evidences',
-      meta: { title: 'Evidence' },
+      meta: { title: 'Evidence', requireAuth: true },
       component: () => import('@/views/EvidencesView.vue'),
     },
     {
       path: '/profile',
       name: 'profile',
-      meta: { title: 'Profile' },
+      meta: {
+        title: 'Profile',
+        requireAuth: true,
+      },
       component: () => import('@/views/ProfileView.vue'),
     },
     {
       path: '/examples',
       redirect: '/examples/forms',
       name: 'examples',
-      meta: { title: 'Examples' },
+      meta: { title: 'Examples', requireAuth: true },
       children: [
         {
           path: 'forms',
@@ -98,7 +107,7 @@ const router = createRouter({
     {
       path: '/dashboard',
       name: 'dashboard',
-      meta: { title: 'Dashboard de la plataforma' },
+      meta: { title: 'Dashboard de la plataforma', requireAuth: true },
       component: () => import('@/views/DashBoardView.vue'),
     },
     {

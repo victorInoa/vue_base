@@ -1,17 +1,16 @@
 <script setup>
 import ProfileInlistBase from '@/components/ProfileInlistBase.vue'
-
-import axios from 'axios'
 import { onMounted, ref } from 'vue'
 import { Icon } from '@iconify/vue'
 import { alertBase } from '@/composables/SweetAlerts.js'
+import Api from '@/services/Api.js'
 
 const hasError = ref(false)
 const listOfUsers = ref([])
 
 async function getUsers() {
   try {
-    const response = await axios.get('?require=users')
+    const response = await Api.get('?require=users')
     if (response.statusText !== 'OK') {
       throw new Error(response.statusText)
     }

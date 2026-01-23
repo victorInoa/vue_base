@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import axios from 'axios'
+import Api from '@/services/Api.js'
 import { alertBase } from '@/composables/SweetAlerts.js'
 import { useAuthStore } from '@/stores/auth.js'
 import router from '@/router/index.js'
@@ -13,7 +13,7 @@ export default class AuthService {
 
   async login(email, password) {
     try {
-      const response = await axios.post('from=service', {
+      const response = await Api.post('?from=service', {
         user_email: email,
         password: password,
         action: 'login',
@@ -39,28 +39,26 @@ export default class AuthService {
         )
       }
       if (response.data.status === 'ok') {
-        await alertBase(response.data.message, 'success', 'Exito', 'Footer').then(() => {
-          this.authStore.setUserInfo(
-            response.data.data.id,
-            response.data.data.email,
-            response.data.data.role,
-            response.data.data.fullName,
-          )
-
-          this.token = response.data.data.token
-
-          console.log(this.authStore.UserInfo)
-
-          router.push({ name: 'dashboard' })
-        })
+        this.authStore.setUserInfo(
+          response.data.data.id,
+          response.data.data.email,
+          response.data.data.role,
+          response.data.data.fullName,
+          response.data.data.photo,
+          response.data.token_type + ' ' + response.data.token,
+        )
+        return true
       }
-
-      //throw new Error('Unknow error status code')
+      throw new Error('Unknow error status code')
     } catch (error) {
       throw error
     }
   }
-  logOut() {}
+  logOut() {
+    this.authStore.clearUserInfo()
+    this.token.value = null
+    return true
+  }
 
   getToken() {
     return this.token

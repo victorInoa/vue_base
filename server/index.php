@@ -1,5 +1,16 @@
 <?php
 // Set CORS headers
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
+
+$isHttps = ! empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off';
+session_set_cookie_params(
+  [
+    'httponly' => true,
+    'secure'   => $isHttps,
+    'samesite' => $isHttps ? 'None' : 'Lax',
+  ]
+);
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization');
@@ -45,6 +56,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['require']) && $_GET['re
   require_once 'list_of_users.php';
 } elseif ($_SERVER['REQUEST_METHOD'] === 'POST' && json_last_error() === JSON_ERROR_NONE) {
   require_once 'auth.php';
+} elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['require']) && $_GET['require'] === 'jwt') {
+  $key     = 'kjsdhf kjdsfhsdkjfh kjashfgaslkjfhsa dkflhsalkfgjhasl jkhfsaldkfjh';
+  $payload = [
+    'iss' => 'http://example.org',
+    'aud' => 'http://example.com',
+    'iat' => 1356999524,
+    'nbf' => 1357000000,
+  ];
+  $jwt     = JWT::encode($payload, $key, 'HS256');
+  $decoded = JWT::decode($jwt, new Key($key, 'HS256'));
+  print_r($jwt);
 } else {
   require_once 'default.php';
 }
