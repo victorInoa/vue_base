@@ -9,6 +9,8 @@
   --color-logo: #0000d5;
   --color-primary-100: rgba(0, 0, 213, 0.1);
   --color-primary-full: #0000d5;
+  --color-obs1: #004085;
+  --color-obs2: #c90e2b;
   /*--color-secondary: #e152aa;*/
   /* 🎨 BASE COLORS */
   --color-primary: rgb(249, 210, 38);
@@ -99,6 +101,12 @@ nav > .router-link-active {
 }
 .table-column-stretch {
   @apply whitespace-nowrap w-1;
+}
+.bg_accent {
+  @apply bg-[var(--color-obs1)]
+}
+.text_accent {
+  @apply text-[var(--color-obs1)]
 }
 /*h2 {*/
 /*  @apply text-2xl;*/

@@ -114,7 +114,7 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       meta: { title: 'Iniciar sesión' },
-      component: () => import('@/views/LoginView.vue'),
+      component: () => import('@/views/LoginOBSView.vue'),
     },
   ],
 })

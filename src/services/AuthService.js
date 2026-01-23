@@ -24,19 +24,30 @@ export default class AuthService {
       }
 
       if (response.data.status === 'error') {
-        await alertBase(response.data.message, 'error', 'Error', 'Footer')
+        throw new Error(response.data.message)
+        //await alertBase(response.data.message, 'error', 'Error', 'Footer')
+        //return false
       }
       if (response.data.status === 'warning') {
-        await alertBase(
+        throw new Error(
           response.data.message +
             '\n Datos pasados: <strong>Email:</strong> ' +
             response.data.data.userEmail +
             ' <strong>Password:</strong> ' +
             response.data.data.password,
-          'warning',
-          'Advertencia',
-          '<strong>Email:</strong> victorinoa16@gmail.com, <strong>Password:</strong> password',
         )
+
+        //await alertBase(
+        //  response.data.message +
+        //    '\n Datos pasados: <strong>Email:</strong> ' +
+        //    response.data.data.userEmail +
+        //    ' <strong>Password:</strong> ' +
+        //    response.data.data.password,
+        //  'warning',
+        //  'Advertencia',
+        //  '<strong>Email:</strong> victorinoa16@gmail.com, <strong>Password:</strong> password',
+        //)
+        //return false
       }
       if (response.data.status === 'ok') {
         this.authStore.setUserInfo(

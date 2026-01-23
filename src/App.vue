@@ -7,14 +7,19 @@ import Footer from '@/components/interfase/Footer.vue'
 import SbMenu from '@/components/interfase/SbMenu.vue'
 import router from '@/router/index.js'
 import { ref } from 'vue'
+import { globalsStore } from '@/stores/globals.js'
 const activeMenu = ref('home')
+const __globals = globalsStore()
 const handleMenusClick = (routeName) => {
   router.push({ name: routeName })
 }
 </script>
 
 <template>
-  <div class="h-screen w-screen flex flex-col items-stretch">
+  <div v-if="__globals.currentRoute && __globals.currentRoute?.name === 'login'">
+    <RouterView />
+  </div>
+  <div v-else class="h-screen w-screen flex flex-col items-stretch">
     <div><HeaderMenu /></div>
     <div class="flex grow items-stretch justify-items-stretch">
       <div class="hidden sm:block">
