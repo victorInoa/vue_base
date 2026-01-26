@@ -7,7 +7,7 @@ const props = defineProps({
   },
   src: {
     type: String,
-    default: '/assets/profiles/vinoa.jpg',
+    default: import.meta.env.VITE_SERVER_ROOT_URL + 'assets/profiles/vinoa.jpg',
   },
   profile: {
     type: String,

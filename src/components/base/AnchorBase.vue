@@ -13,7 +13,7 @@ defineProps({
 <template>
   <a
     :class="[
-      'text-blue-600 hover:underline inline-flex justify-center items-center gap-x-0.1 text-sm capitalize',
+      'text-blue-600 hover:underline inline-flex justify-center items-center gap-x-0.1 text-sm',
       variant === 'muted' && 'text-gray-500 border-transparent',
       variant === 'success' && 'text-green-500 border-transparent',
       variant === 'info' && ' text-blue-800 border-transparent',
