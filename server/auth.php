@@ -20,7 +20,8 @@ if ($_POST["action"] === 'login') {
     );
   } else {
     if ($userEmail === 'victorinoa16@gmail.com' && $password === 'password') {
-      $generatedToken = Random::token(32);
+      $tokenStart     = 'SSP_';
+      $generatedToken = Random::token(37);
       echo json_encode(
         [
           'status'     => 'ok',
@@ -32,7 +33,7 @@ if ($_POST["action"] === 'login') {
             'fullName' => 'Juan de los Palotes',
             'photo'    => 'https://observatorio.82-165-212-149.plesk.page/content/users-profiles/wp2831865-1080p-gaming-wallpapers.jpg',
           ],
-          'token'      => $generatedToken,
+          'token'      => $tokenStart . $generatedToken,
           'token_type' => 'Bearer',
         ],
         JSON_THROW_ON_ERROR

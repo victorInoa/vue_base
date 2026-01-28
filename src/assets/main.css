@@ -1,16 +1,79 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 @theme {
+  /*Fonts*/
   --font-opens: 'Open Sans Variable', sans-serif;
   --font-poppins: 'Poppins Variable', sans-serif;
   --default-font-family: var(--font-poppins);
-  --color-one: #f9d226;
-  --color-two: #e152aa;
-  --color-logo: #0000d5;
-  --color-primary-100: rgba(0, 0, 213, 0.1);
-  --color-primary-full: #0000d5;
+  /*Colors base theme*/
+  /*Colors obs*/
   --color-obs1: #004085;
   --color-obs2: #c90e2b;
+  /*Colors ssp*/
+  --color-ssp1: #ca2229;
+  --color-ssp2: #ef7723;
+  --color-ssp3: #a6cd3a;
+  --color-ssp4: #1ba653;
+  --color-ssp5: #158292;
+  --color-ssp6: #333;
+  /*End colors base theme*/
+  /*
+  Platform's default colors
+  don´t delete the variables names
+  */
+  /*header menu*/
+  --color-menu-default: var(--color-ssp3);
+  --color-menu-hover: var(--color-ssp1);
+  --color-submenu-default: var(--color-ssp3);
+  --color-submenu-hover: var(--color-ssp1);
+  --color-menu-accented: var(--color-ssp2);
+  --color-submenu-accented: var(--color-ssp1);
+  /*body text*/
+  --color-body-default: var(--color-ssp6);
+  --color-body-accented: var(--color-ssp4);
+  /*sb menu*/
+  --color-sbmenu-text-default: var(--color-ssp3);
+  --color-sbmenu-text-hover: var(--color-ssp1);
+  --color-sbmenu-text-accented: var(--color-ssp2);
+  --color-sbmenu-bg-default: var(--color-ssp3);
+  --color-sbmenu-bg-hover: var(--color-ssp1);
+  --color-sbmenu-bg-accented: var(--color-ssp2);
+  --color-sbmenu-border-default: yellow;
+  --color-sbmenu-border-accented: rgba(76, 166, 178, 0.3);
+  /*--*/
+  --color-sbmenu-dark-text-default: var(--color-ssp3);
+  --color-sbmenu-dark-text-hover: var(--color-ssp1);
+  --color-sbmenu-dark-text-accented: var(--color-ssp2);
+  --color-sbmenu-dark-bg-default: var(--color-ssp3)/10;
+  --color-sbmenu-dark-bg-hover: var(--color-ssp1);
+  --color-sbmenu-dark-bg-accented: var(--color-ssp2);
+  --color-sbmenu-dark-border-default: blue;
+  --color-sbmenu-dark-border-accented: pink;
+  /*forms*/
+  --color-form-border-default: DarkGoldenrod;
+  --color-form-border-accented: gold;
+  --color-form-bg-default: var(--color-ssp3);
+  --color-form-bg-accented: var(--color-ssp2);
+  --color-form-text-default: var(--color-ssp6);
+  --color-form-text-accented: var(--color-ssp4);
+  --form-font-size: 1.025rem;
+  --form-font-weight: bold;
+  --form-border-width: 2px;
+  --form-border-radius: .75rem;
+  --form-padding-x: 1rem;
+  --form-padding-y: .5rem;
+  /*--*/
+  --color-form-dark-border-default: MediumTurquoise;
+  --color-form-dark-border-accented: Aquamarine;
+  --color-form-dark-bg-default: LightSteelBlue;
+  --color-form-dark-bg-accented: DarkBlue;
+  --color-form-dark-text-default: var(--color-ssp6);
+  --color-form-dark-text-accented: red;
+  /*End Platform's default colors*/
+  /*USED IN ANOTHER PLACES*/
+  --color-primary-100: rgba(0, 0, 213, 0.1);
+  --color-primary-full: #0000d5;
+
   /*--color-secondary: #e152aa;*/
   /* 🎨 BASE COLORS */
   --color-primary: rgb(249, 210, 38);
@@ -94,10 +157,10 @@ body {
 }
 /*nav bar*/
 nav > .router-link-active, .router-link-active.router-link-exact-active {
-  @apply text-two;
+  @apply text-menu-accented;
 }
 nav > .router-link-active {
-  @apply border-b-one border-b-2 top-4 pb-[calc(1rem)] self-center relative;
+  @apply border-b-menu-default border-b-2 top-4 pb-[calc(1rem)] self-center relative;
 }
 .table-column-stretch {
   @apply whitespace-nowrap w-1;

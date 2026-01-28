@@ -15,10 +15,12 @@ defineProps({
 <template>
   <a
     :class="[
-      isActive ? 'border-e-primary-full dark:border-e-secondary' : 'border-e-transparent',
+      isActive
+        ? 'border-e-sbmenu-border-accented dark:border-e-sbmenu-dark-border-accented'
+        : 'border-e-sbmenu-border-default dark:border-e-sbmenu-dark-border-default',
       'px-4',
       'my-1',
-      'hover:border-e-primary-full hover:dark:border-e-secondary',
+      'hover:border-e-sbmenu-border-accented hover:dark:border-e-sbmenu-dark-border-accented',
       'border-r-4',
       'relative',
       'right-[-2px]',

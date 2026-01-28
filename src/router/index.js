@@ -116,12 +116,38 @@ const router = createRouter({
       meta: { title: 'Iniciar sesión' },
       component: () => import('@/views/LoginOBSView.vue'),
     },
+    {
+      path: '/platforms',
+      name: 'sspPlatforms',
+      meta: { title: 'Manejo de las plataformas' },
+      component: () => import('@/views/ssp/backend/PlatformsManagementView.vue'),
+    },
+    {
+      path: '/dashboard',
+      name: 'sspDashboard',
+      meta: { title: 'Dashboard' },
+      component: () => import('@/views/ssp/backend/DashboardView.vue'),
+    },
+    {
+      path: '/users',
+      name: 'sspUsers',
+      meta: { title: 'Usuarios' },
+      component: () => import('@/views/ssp/backend/UsersView.vue'),
+    },
+    {
+      path: '/ads',
+      name: 'sspAds',
+      meta: { title: 'Publicidad' },
+      component: () => import('@/views/ssp/backend/AdsManagementView.vue'),
+    },
   ],
 })
 
 router.beforeEach((to, from, next) => {
   const globals = globalsStore()
-  document.title = to.meta.title.toString() + ' | Vue Base' || 'Vue Base'
+  document.title =
+    to.meta.title.toString() + ' | ' + import.meta.env.VITE_PLATFORM_TITLE_PAGE ||
+    import.meta.env.VITE_PLATFORM_TITLE_PAGE
 
   //---------------------------------------------------------------------------------------
   //todo: hasta ahora encuentro esta la formas limpia de exponer la ruta actual y la ruta anterior

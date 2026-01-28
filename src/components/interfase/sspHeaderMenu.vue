@@ -30,7 +30,9 @@ const __globals = globalsStore()
       <nav
         class="space-x-4 dark:text-slate-200 justify-start items-end hidden md:flex md:flex-1 top-[5px]"
       >
-        <RouterLink :to="{ name: 'home' }" class="hover:text-menu-hover">Dashboard</RouterLink>
+        <RouterLink :to="{ name: 'sspDashboard' }" class="hover:text-menu-hover"
+          >Dashboard</RouterLink
+        >
         <RouterLink :to="{ name: 'content' }" class="hover:text-menu-hover group/menu relative"
           >Contenido
           <ul
