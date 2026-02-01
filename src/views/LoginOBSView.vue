@@ -10,6 +10,19 @@ import { onMounted, ref } from 'vue'
 import { alertBase } from '@/composables/SweetAlerts.js'
 import router from '@/router/index.js'
 import AuthService from '@/services/AuthService.js'
+
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Autoplay } from 'swiper/modules'
+
+import 'swiper/css'
+
+const onSwiper = (swiper) => {
+  console.log(swiper)
+}
+const onSlideChange = () => {
+  console.log('slide change')
+}
+
 const sendingLoginForm = ref(false)
 
 const themeDarkMode = darkModeStore()
@@ -41,6 +54,11 @@ onMounted(() => {
 </script>
 
 <template>
+  <!-- Slider main container -->
+  <!--  <div class="swiper_slider z-9999 bg-red-500 w-60 h-30">-->
+  <!-- Additional required wrapper -->
+
+  <!--  </div>-->
   <div class="flex h-screen bg-[#cacaca]">
     <div class="hero-bg h-[330px] bg-blue-700 absolute w-full top-0 z-0"></div>
     <div class="flex flex-col w-screen z-10 mt-8 items-center">
@@ -88,11 +106,36 @@ onMounted(() => {
         <div
           class="h-[602px] w-[515px] grow slides-container border-l-[30px] border-l-red-600 rotate-15 bg-amber-100 ml-[-40px] mt-[-55px] overflow-hidden absolute right-[-48px]"
         >
-          <div class="rotate-[-15deg]">
-            <img
-              class="max-w-[calc(100%+150px)] h-[472px] ml-[-71px] mt-[50px]"
-              src="/assets/obs/login-slides/slide-2.jpg"
-            />
+          <div class="rotate-[-15deg] left-[-69px] top-[3px] relative">
+            <swiper
+              :autoplay="{
+                delay: 5000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }"
+              :loop="true"
+              :modules="[Autoplay]"
+              :slides-per-view="1"
+              class="w-[515px] h-[602px]"
+              @slideChange="onSlideChange"
+              @swiper="onSwiper"
+            >
+              <SwiperSlide class="h-full">
+                <div class="w-full h-full flex items-center justify-center">
+                  <img class="" src="/assets/obs/login-slides/slide-1.jpg" />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide class="h-full">
+                <div class="w-full h-full flex items-center justify-center">
+                  <img class="" src="/assets/obs/login-slides/slide-2.jpg" />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide class="h-full">
+                <div class="w-full h-full flex items-center justify-center">
+                  <img class="" src="/assets/obs/login-slides/slide-3.jpg" />
+                </div>
+              </SwiperSlide>
+            </swiper>
           </div>
         </div>
       </div>
