@@ -15,13 +15,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay } from 'swiper/modules'
 
 import 'swiper/css'
-
-const onSwiper = (swiper) => {
-  console.log(swiper)
-}
-const onSlideChange = () => {
-  console.log('slide change')
-}
+import { Icon } from '@iconify/vue'
 
 const sendingLoginForm = ref(false)
 
@@ -92,7 +86,59 @@ onMounted(() => {
                 ></input-password-base>
               </div>
               <div>
-                <button-base class="bg_accent" type="submit">Entrar</button-base>
+                <ButtonBase :disabled="sendingLoginForm" type="submit">
+                  <template v-if="sendingLoginForm">
+                    <div class="mr-2 inline">
+                      <svg
+                        height="24"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="4"
+                        >
+                          <path d="M12 3c4.97 0 9 4.03 9 9" stroke-dasharray="18">
+                            <animate
+                              attributeName="stroke-dashoffset"
+                              dur="0.3s"
+                              fill="freeze"
+                              values="18;0"
+                            />
+                            <animateTransform
+                              attributeName="transform"
+                              dur="1.5s"
+                              repeatCount="indefinite"
+                              type="rotate"
+                              values="0 12 12;360 12 12"
+                            />
+                          </path>
+                          <path
+                            d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+                            opacity="0.3"
+                            stroke-dasharray="60"
+                          >
+                            <animate
+                              attributeName="stroke-dashoffset"
+                              dur="1.2s"
+                              fill="freeze"
+                              values="60;0"
+                            />
+                          </path>
+                        </g>
+                      </svg>
+                    </div>
+                    Entrando a la plataforma
+                  </template>
+                  <template v-else>
+                    <Icon class="mr-2 inline" icon="mdi:account-key" />
+                    Enviar
+                  </template>
+                </ButtonBase>
               </div>
             </div>
             <div class="flex flex-col gap-4 items-start justify-start links-container mt-30">
@@ -117,8 +163,6 @@ onMounted(() => {
               :modules="[Autoplay]"
               :slides-per-view="1"
               class="w-[515px] h-[602px]"
-              @slideChange="onSlideChange"
-              @swiper="onSwiper"
             >
               <SwiperSlide class="h-full">
                 <div class="w-full h-full flex items-center justify-center">
