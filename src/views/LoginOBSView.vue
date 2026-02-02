@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import InputTextBase from '@/components/base/forms/InputTextBase.vue'
 import InputPasswordBase from '@/components/base/forms/InputPasswordBase.vue'
 import AnchorBase from '@/components/base/AnchorBase.vue'
 import ButtonBase from '@/components/base/forms/ButtonBase.vue'
@@ -16,6 +15,7 @@ import { Autoplay } from 'swiper/modules'
 
 import 'swiper/css'
 import { Icon } from '@iconify/vue'
+import InputEmailBase from '@/components/base/forms/InputEmailBase.vue'
 
 const sendingLoginForm = ref(false)
 
@@ -71,11 +71,11 @@ onMounted(() => {
           <div class="w-[528px] pt-12 pl-12 pb-12 pr-[115px] flex flex-col login-form-container">
             <div class="flex flex-col inputs-container gap-4">
               <div>
-                <input-text-base
+                <inputEmailBase
                   label="Correo electrónico"
                   name="user_email"
                   placeholder="Escribe tu email"
-                ></input-text-base>
+                ></inputEmailBase>
               </div>
               <div>
                 <input-password-base
