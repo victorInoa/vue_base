@@ -28,7 +28,7 @@ async function handleSubmit() {
   console.log('----submitting')
   sendingLoginForm.value = true
   try {
-    await Auth.login(formData.get('user_email'), formData.get('password')).then(() => {
+    await Auth.login(formData.get('email'), formData.get('password')).then(() => {
       router.push({ name: 'dashboard' })
       sendingLoginForm.value = false
     })
@@ -73,7 +73,7 @@ onMounted(() => {
               <div>
                 <inputEmailBase
                   label="Correo electrónico"
-                  name="user_email"
+                  name="email"
                   placeholder="Escribe tu email"
                 ></inputEmailBase>
               </div>

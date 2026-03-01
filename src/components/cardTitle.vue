@@ -1,5 +1,5 @@
 <template>
-  <h1 class="text-[26px] font-opens font-bold">
+  <h3 class="text-[32px] font-opens text-obs1 leading-10">
     <slot></slot>
-  </h1>
+  </h3>
 </template>
